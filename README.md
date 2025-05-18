@@ -3,7 +3,7 @@
 Landing page profesional para Inmunomedi - Tu aliado en salud y bienestar inmunológico
 
 ## 🌐 Enlaces Importantes
-- **Sitio Web:** [https://github.com/FerchoSD/InmunoMedi](https://inmunovital.com)
+- **Sitio Web:**  [https://inmunovital.com](https://inmunovital.com)
 - **Contacto:** [fesolis.wdf37@bootcamp.ucamp.io](mailto:fesolis.wdf37@bootcamp.ucamp.io)
 
 ## 💫 Acerca del Proyecto
