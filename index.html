@@ -1,1350 +1,314 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MCPS5HTD');</script>
-<!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="InmunoMedi - Distribuidor de Factor de Transferencia y suplementos premium para fortalecer tu sistema inmune de manera natural y efectiva.">
-  <meta name="keywords" content="Factor de Transferencia, sistema inmune, suplementos, salud, bienestar, inmunidad">
-  <meta name="author" content="InmunoMedi">
-  <meta property="og:title" content="InmunoMedi - Fortalece tu Sistema Inmune">
-  <meta property="og:description" content="Distribuidor de Factor de Transferencia y suplementos premium para fortalecer tu sistema inmune de manera natural y efectiva.">
-  <meta property="og:image" content="recursos/simbolo/SimbFCT.png">
-  <meta property="og:url" content="https://inmunomedi.com">
-  <meta name="theme-color" content="#2E5A87">
-  <title>InmunoMedi - Fortalece tu Sistema Inmune</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="template/shared.css">
-  <link rel="stylesheet" href="inmunomedi-premium.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="recursos/simbolo/SimbFCT.png" type="image/png">
-  <link rel="apple-touch-icon" href="recursos/simbolo/SimbFCT.png">
-  
-  <!-- Scripts ordenados para garantizar carga correcta -->
-  <script src="inmunomedi-particles.js" defer></script>
-  
-  <!-- Scripts de templates (SIN DEFER para garantizar carga) -->
-  <script src="template/load-templates.js"></script>
-  
-  <!-- Script para cargar el preloader premium (se ejecuta DESPUÉS del template) -->
-  <script src="preloader-injector.js"></script>
+  <title>InmunoMedi</title>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCPS5HTD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <!-- Fondo premium con partículas inmunológicas animadas -->
-  <div id="bg-particles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden;"></div>
-  
-  <script>
-    // Crear partículas inmunológicas para el fondo
-    document.addEventListener('DOMContentLoaded', function() {
-      const particlesContainer = document.getElementById('bg-particles');
-      const particleCount = 15; // Número de partículas
-      
-      // Tipos de partículas inmunológicas
-      const particleTypes = [
-        // Células inmunológicas (círculos con gradientes azules)
-        function createImmuneCellBlue() {
-          const size = Math.random() * 100 + 50;
-          const particle = document.createElement('div');
-          particle.style.position = 'absolute';
-          particle.style.width = size + 'px';
-          particle.style.height = size + 'px';
-          particle.style.borderRadius = '50%';
-          particle.style.background = `radial-gradient(circle, rgba(5, 106, 250, ${Math.random() * 0.1 + 0.05}) 0%, rgba(5, 106, 250, 0) 70%)`;
-          particle.style.animation = `float-element ${Math.random() * 10 + 8}s infinite ease-in-out ${Math.random() * 5}s`;
-          particle.style.opacity = '0.4';
-          particle.style.filter = 'blur(2px)';
-          return particle;
-        },
-        // Células inmunológicas (círculos con gradientes rosados)
-        function createImmuneCellPink() {
-          const size = Math.random() * 80 + 40;
-          const particle = document.createElement('div');
-          particle.style.position = 'absolute';
-          particle.style.width = size + 'px';
-          particle.style.height = size + 'px';
-          particle.style.borderRadius = '50%';
-          particle.style.background = `radial-gradient(circle, rgba(255, 207, 250, ${Math.random() * 0.1 + 0.05}) 0%, rgba(255, 207, 250, 0) 70%)`;
-          particle.style.animation = `float-element ${Math.random() * 12 + 10}s infinite ease-in-out ${Math.random() * 5}s`;
-          particle.style.opacity = '0.4';
-          particle.style.filter = 'blur(2px)';
-          return particle;
-        },
-        // Moléculas de anticuerpos (círculos con borde)
-        function createAntibody() {
-          const size = Math.random() * 60 + 30;
-          const particle = document.createElement('div');
-          particle.style.position = 'absolute';
-          particle.style.width = size + 'px';
-          particle.style.height = size + 'px';
-          particle.style.borderRadius = '50%';
-          particle.style.border = `2px solid rgba(5, 106, 250, ${Math.random() * 0.1 + 0.05})`;
-          particle.style.animation = `float-element ${Math.random() * 15 + 10}s infinite ease-in-out ${Math.random() * 5}s`;
-          particle.style.opacity = '0.3';
-          return particle;
-        }
-      ];
-      
-      // Crear y posicionar las partículas
-      for (let i = 0; i < particleCount; i++) {
-        // Seleccionar un tipo aleatorio de partícula
-        const createParticle = particleTypes[Math.floor(Math.random() * particleTypes.length)];
-        const particle = createParticle();
-        
-        // Posicionar aleatoriamente en la pantalla
-        particle.style.top = (Math.random() * 100) + 'vh';
-        particle.style.left = (Math.random() * 100) + 'vw';
-        particle.style.zIndex = '-1';
-        
-        // Añadir al contenedor
-        particlesContainer.appendChild(particle);
-      }
-      
-      // Efecto de rotación lenta para algunas partículas
-      const particles = particlesContainer.querySelectorAll('div');
-      for (let i = 0; i < particles.length; i += 2) {
-        const particle = particles[i];
-        const currentAnimation = particle.style.animation;
-        particle.style.animation = `${currentAnimation}, rotate-slow ${Math.random() * 30 + 20}s linear infinite`;
-      }
-    });
-  </script>
-  <!-- El preloader se cargará automáticamente desde preloader-premium.html -->
-
-  <!-- Header usando el sistema de templates -->
-  <div id="header-container"></div>
-
-  <!-- Título principal ultra premium con efectos especiales (versión compacta) -->
-  <div class="mega-title-container" style="position: relative; padding: 10px 0 5px; background: linear-gradient(180deg, rgba(5,106,250,0.05) 0%, rgba(255,255,255,0) 100%); overflow: hidden; margin-top: 0;">
-    <!-- Elementos decorativos más pequeños y sutiles -->
-    <div style="position: absolute; top: -60px; left: -60px; width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, rgba(5,106,250,0.07) 0%, rgba(5,106,250,0.01) 100%); filter: blur(20px); animation: float-slow 15s infinite ease-in-out alternate; z-index: 0;"></div>
-    <div style="position: absolute; bottom: -80px; right: -60px; width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, rgba(255,207,250,0.06) 0%, rgba(255,207,250,0) 70%); filter: blur(20px); animation: float-slow 12s infinite ease-in-out alternate 2s; z-index: 0;"></div>
-    
-    <!-- Contenedor central del título compacto -->
-    <div class="container text-center position-relative" style="z-index: 2;">
-      <!-- Título y subtítulo en layout horizontal para ahorrar espacio vertical -->
-      <div class="compact-title-layout" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px 25px;">
-        
-        <!-- Título principal con efectos 3D y resplandor (tamaño reducido) -->
-        <div style="position: relative; display: inline-flex; transform-style: preserve-3d; perspective: 800px;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(5,106,250,0.3) 0%, rgba(5,106,250,0) 70%); filter: blur(15px); opacity: 0.5; z-index: -1; animation: pulse-slow 5s infinite alternate ease-in-out;"></div>
-          
-          <!-- Título más pequeño pero igual de impactante -->
-          <h1 style="font-family: 'Montserrat', sans-serif; font-size: min(3.2rem, 8vw); font-weight: 900; background: linear-gradient(135deg, #056afa 20%, #417ecd 50%, #056afa 80%); -webkit-background-clip: text; background-clip: text; color: transparent; text-transform: uppercase; letter-spacing: -1px; margin: 0; padding: 0; line-height: 1; position: relative; display: inline-block; transform: translateZ(5px); text-shadow: 0 3px 15px rgba(5,106,250,0.2); animation: title-float-compact 5s infinite ease-in-out;">
-            Revoluciona
-            <!-- Línea decorativa más sutil -->
-            <span style="position: absolute; bottom: 0; left: 10%; width: 80%; height: 3px; background: linear-gradient(90deg, transparent, rgba(5,106,250,0.7), transparent); border-radius: 3px; opacity: 0.6;"></span>
-          </h1>
-          
-          <!-- Partícula decorativa (reducidas a solo 2) -->
-          <div style="position: absolute; top: 20%; left: 15%; width: 6px; height: 6px; background: #056afa; border-radius: 50%; opacity: 0.5; filter: blur(1px); animation: float-particle 10s infinite ease-in-out;"></div>
-          <div style="position: absolute; top: 70%; right: 10%; width: 5px; height: 5px; background: #ffcffa; border-radius: 50%; opacity: 0.6; filter: blur(1px); animation: float-particle 12s infinite ease-in-out 1s;"></div>
-        </div>
-        
-        <!-- Subtítulo con efecto de degradado (más pequeño) -->
-        <div style="position: relative; display: inline-flex;">
-          <h2 style="font-family: 'Montserrat', sans-serif; font-size: min(2.8rem, 7vw); font-weight: 800; background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-transform: uppercase; margin: 0; padding: 0; line-height: 1; position: relative; display: inline-block; text-shadow: 0 3px 15px rgba(255,207,250,0.25); animation: subtitle-pulse 5s ease-in-out infinite alternate;">
-            Tu Sistema Inmune
-          </h2>
-        </div>
-      </div>
-      
-      <!-- Línea decorativa central más sutil -->
-      <div style="position: relative; height: 4px; width: 20%; max-width: 250px; margin: 5px auto; background: linear-gradient(90deg, #056afa, #ffcffa); border-radius: 4px; overflow: hidden; box-shadow: 0 1px 6px rgba(5,106,250,0.2);">
-        <div style="position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent); animation: shimmer 2s infinite ease-in-out; z-index: 2;"></div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Definición de nuevas animaciones más sutiles para el título compacto -->
-  <style>
-    @keyframes title-float-compact {
-      0% { transform: translateZ(5px); }
-      50% { transform: translateZ(12px); }
-      100% { transform: translateZ(5px); }
-    }
-  </style>
-  
-  <!-- Banner principal con introducción integrada -->
-  <section class="banner-principal" style="margin-top: 0; margin-bottom: 50px; padding-top: 0; position: relative;">
-    <div class="intro-banner-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;">
-      <div class="background-image-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-        <div id="background-slider" class="active-slide-bg" style="background-image: url('recursos/carrusel/CelestinFT__2024_V4.webp'); background-size: cover; background-position: center; filter: blur(8px) opacity(0.08); width: 100%; height: 100%; transition: background-image 1s ease-in-out;"></div>
-      </div>
-    </div>
-    <div class="container-fluid px-4">
-      <div class="banner-container carousel-premium" style="background: transparent !important; opacity: 1; visibility: visible; border: none; box-shadow: none; outline: none;">
-
-        <div id="carouselMain" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000" style="height: 100%; background: transparent !important;">
-          <div class="carousel-inner" style="height: 100%; background: transparent !important;">
-            <!-- Slide 1: Innovación y Fundamento Científico - Diseño Ultra Premium -->
-            <div class="carousel-item active" style="height: 100%; display: flex; align-items: center; justify-content: center; padding: 0 20px; background: transparent !important;">
-              <div style="display: flex; width: 100%; max-width: 1400px; margin: 0 auto; height: 550px; position: relative; gap: 25px; background: transparent !important;">
-                <!-- Fondo general del slide con textura sutil y gradiente (transparente) -->
-                
-                <!-- Contenedor de la imagen con borde redondeado -->
-                <div style="width: 52%; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; background: transparent !important;">
-                  <div style="width: 95%; height: 90%; background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-radius: 30px; overflow: hidden; position: relative; box-shadow: none; transition: all 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                    <!-- Resplandor decorativo -->
-                    <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(5, 106, 250, 0.08) 0%, rgba(5, 106, 250, 0) 70%); z-index: 1;"></div>
-                    
-                    <!-- Elementos decorativos circulares -->
-                    <div style="position: absolute; top: 40px; left: 40px; width: 120px; height: 120px; border: 2px solid rgba(5, 106, 250, 0.2); border-radius: 50%; z-index: 1 !important; animation: pulse-border 3s infinite ease-in-out;"></div>
-                    <div style="position: absolute; bottom: 60px; right: 60px; width: 80px; height: 80px; border: 2px solid rgba(5, 106, 250, 0.15); border-radius: 50%; z-index: 1 !important; animation: pulse-border 3s infinite ease-in-out 1.5s;"></div>
-                    <div style="position: absolute; top: 80px; right: 80px; width: 40px; height: 40px; border: 1px solid rgba(5, 106, 250, 0.1); border-radius: 50%; z-index: 1 !important; animation: pulse-border 3s infinite ease-in-out 0.5s;"></div>
-                    
-                    <!-- Imagen del producto con efectos premium -->
-                    <img src="recursos/carrusel/CelestinFT__2024_V4.webp" alt="Innovación y Fundamento Científico" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.8s ease; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15)); z-index: 999 !important; position: relative;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-                    
-                  </div>
-                </div>
-                
-                <!-- Contenido informativo con diseño ULTRA premium y borde redondeado -->
-                <div style="width: 48%; position: relative; z-index: 2; background: transparent !important;">
-                  <!-- Animación de fondo flotante -->
-                  <div class="floating-bg" style="position: absolute; width: 500px; height: 500px; background: none !important; border-radius: 50%; filter: none !important; z-index: -1; animation: none !important;"></div>
-                  
-                  <!-- Contenedor principal con efecto glassmorphism premium transparente -->
-                  <div style="width: 100%; padding: 30px 50px 50px; background: transparent !important; border-radius: 30px; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; position: relative; overflow: hidden; transition: none !important; display: flex; flex-direction: column;" 
-                    onmouseover="" 
-                    onmouseout="">
-                    
-                    <!-- Elementos decorativos flotantes -->
-                    <div style="position: absolute; bottom: -80px; left: -30px; width: 200px; height: 200px; border-radius: 50%; background: none !important; animation: none !important;"></div>
-                    
-                    <!-- Partículas flotantes -->                    
-                    <div class="particle" style="position: absolute; width: 8px; height: 8px; border-radius: 50%; background: transparent !important; top: 15%; left: 10%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 12px; height: 12px; border-radius: 50%; background: transparent !important; top: 70%; left: 85%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 6px; height: 6px; border-radius: 50%; background: transparent !important; top: 30%; left: 80%; filter: none !important; animation: none !important;"></div>
-                    
-                    <!-- Bordes brillantes animados -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border-radius: 30px; box-shadow: none !important; overflow: hidden;">
-                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: none !important; animation: none !important;"></div>
-                    </div>
-                    
-                    <!-- Efecto de texto con resplandor -->
-                    <div style="position: absolute; top: 50px; left: 30px; width: 80%; height: 60%; background: none !important; z-index: 0; filter: none !important;"></div>
-                      
-                    <!-- Título con tipografía 3D y animada -->
-                    <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px;">
-                      <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: none !important; animation: none !important;">
-                        Innovación
-                        <span style="position: absolute; bottom: -5px; left: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                      </h2>
-                    </div>
-                    
-                    <div class="subtitle-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px; transform-style: preserve-3d;">
-                      <h3 style="font-size: 2.5rem; font-weight: 700; color: #ffcffa; line-height: 1.1; margin: 0; display: inline-block; text-shadow: 0 5px 15px rgba(255,207,250,0.3); background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); -webkit-background-clip: text; background-clip: text; color: transparent; animation: subtitle-pulse 5s ease-in-out infinite alternate;">
-                        y fundamento
-                      </h3>
-                    </div>
-                    
-                    <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 30px; transform-style: preserve-3d;">
-                      <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: translateZ(10px); animation: title-float 4s ease-in-out infinite alternate 1s;">
-                        científico
-                        <span style="position: absolute; bottom: -5px; right: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                      </h2>
-                    </div>
-                    
-                    <!-- Línea decorativa con efecto brillante avanzado -->
-                    <div style="width: 150px; height: 4px; background: transparent !important; margin-bottom: 30px; border-radius: 4px; position: relative; overflow: hidden; box-shadow: none !important;">
-                      <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: none !important; animation: none !important; z-index: 2;"></div>
-                    </div>
-                    
-                    <!-- Texto principal con estilo premium y efecto hover interactivo -->
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: #333; font-weight: 400; margin: -40px 0 30px 0; position: relative; z-index: 1; text-shadow: none; background: transparent !important; padding: 20px; border-radius: 15px; box-shadow: none; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; transition: all 0.3s ease;" 
-                      onmouseover="this.style.background='transparent'; this.style.transform='translateY(-5px)'; this.style.boxShadow='none'" 
-                      onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                      Respaldados por la <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">ciencia y la innovación</span>, como distribuidores de Factor de Transferencia, nos dedicamos a ofrecer <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">soluciones basadas en avances comprobados</span>.
-                    </p>
-                      
-                    <!-- Botón de acción premium -->
-                    <div style="margin-top: -40px; position: relative; z-index: 20; overflow: visible;">
-                      <a href="productos.html" class="btn-premium" style="display: inline-block; width: auto; padding: 14px 36px; background: #ffcffa; background-image: none; color: #056afa; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(211,178,194,0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 28px rgba(211,178,194,0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(211,178,194,0.4)'">
-                        <i class="fas fa-microscope" style="margin-right: 10px;"></i> DESCUBRIR PRODUCTOS
-                      </a>
-                    </div>
-                  
-                    <!-- Puntos decorativos -->
-                    <div style="display: flex; gap: 15px; margin-top: 25px; position: relative; z-index: 1;">
-                      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.8;"></div>
-                      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.6;"></div>
-                      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.4;"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Slide 2: Equilibrio Saludable en tu Microbiota - Diseño Premium -->
-            <div class="carousel-item" style="height: 100%; display: flex; align-items: center; justify-content: center; padding: 0 50px; background: transparent !important;">
-              <div style="display: flex; width: 100%; max-width: 1600px; margin: 0 auto; height: 600px; position: relative; gap: 30px; background: transparent;">
-                <!-- Fondo general del slide con textura sutil -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: none !important; z-index: 0;"></div>
-                
-                <!-- Contenedor de la imagen con borde redondeado -->
-                <div style="width: 52%; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; background: transparent !important;">
-                  <div style="width: 95%; height: 90%; background: none !important; border-radius: 30px; overflow: hidden; position: relative; box-shadow: none !important; transition: all 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                    <!-- Textura sutil para el fondo de la imagen -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: none !important; z-index: 1;"></div>
-                    
-                    <!-- Imagen del producto con efectos premium -->
-                    <img src="recursos/carrusel/DailyPRO_50_2024_V4.webp" alt="Daily Pro 50" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.8s ease; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15)); z-index: 999 !important; position: relative;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" class="carousel-product-image">
-                    
-                    <!-- Resplandor decorativo -->
-                    <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: none !important; z-index: 1;"></div>
-                    
-                    <!-- Elementos decorativos circulares -->
-                    <div style="position: absolute; top: 40px; right: 40px; width: 120px; height: 120px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; z-index: 1 !important;"></div>
-                    <div style="position: absolute; top: 60px; right: 60px; width: 80px; height: 80px; border: 2px solid rgba(255,255,255,0.2); border-radius: 50%; z-index: 1 !important;"></div>
-                  </div>
-                </div>
-                
-                <!-- Contenido informativo con diseño ULTRA premium y borde redondeado -->
-                <div style="width: 48%; position: relative; z-index: 2; background: transparent !important;">
-                  <!-- Animación de fondo flotante -->
-                  <div class="floating-bg" style="position: absolute; width: 500px; height: 500px; background: none !important; border-radius: 50%; filter: none !important; z-index: -1; animation: none !important;"></div>
-                  
-                  <!-- Contenedor principal con efecto glassmorphism premium transparente -->
-                  <div style="width: 100%; padding: 30px 50px 50px; background: transparent !important; border-radius: 30px; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; position: relative; overflow: hidden; transition: none !important; display: flex; flex-direction: column;" 
-                    onmouseover="" 
-                    onmouseout="">
-                    
-                    <!-- Elementos decorativos flotantes -->
-                    <div style="position: absolute; bottom: -80px; left: -30px; width: 200px; height: 200px; border-radius: 50%; background: none !important; animation: none !important;"></div>
-                    
-                    <!-- Partículas flotantes -->                    
-                    <div class="particle" style="position: absolute; width: 8px; height: 8px; border-radius: 50%; background: transparent !important; top: 15%; left: 10%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 12px; height: 12px; border-radius: 50%; background: transparent !important; top: 70%; left: 85%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 6px; height: 6px; border-radius: 50%; background: transparent !important; top: 30%; left: 80%; filter: none !important; animation: none !important;"></div>
-                    
-                    <!-- Bordes brillantes animados -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border-radius: 30px; box-shadow: none !important; overflow: hidden;">
-                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: none !important; animation: none !important;"></div>
-                    </div>
-                    
-                    <div style="width: 100%; flex-grow: 1; position: relative;">
-                      <!-- Efecto de texto con resplandor -->
-                      <div style="position: absolute; top: -10px; left: -20px; width: 140%; height: 100%; background: none !important; z-index: 0; filter: none !important;"></div>
-                      
-                      <!-- Título con tipografía 3D y animada -->
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: none !important; animation: none !important;">
-                          Equilibrio
-                          <span style="position: absolute; bottom: -5px; left: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <div class="subtitle-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px; transform-style: preserve-3d;">
-                        <h3 style="font-size: 2.5rem; font-weight: 700; color: #ffcffa; line-height: 1.1; margin: 0; display: inline-block; text-shadow: 0 5px 15px rgba(255,207,250,0.3); background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); -webkit-background-clip: text; background-clip: text; color: transparent; animation: subtitle-pulse 5s ease-in-out infinite alternate;">
-                          saludable
-                        </h3>
-                      </div>
-                      
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 30px; transform-style: preserve-3d;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: translateZ(10px); animation: title-float 4s ease-in-out infinite alternate 1s;">
-                          en tu microbiota
-                          <span style="position: absolute; bottom: -5px; right: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <!-- Línea decorativa con efecto brillante avanzado -->
-                      <div style="width: 150px; height: 4px; background: transparent !important; margin-bottom: 30px; border-radius: 4px; position: relative; overflow: hidden; box-shadow: none !important;">
-                        <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: none !important; animation: none !important; z-index: 2;"></div>
-                      </div>
-                      
-                      <!-- Texto principal con estilo premium y efecto hover interactivo -->
-                      <p style="font-size: 1.2rem; line-height: 1.8; color: #333; font-weight: 400; margin: -40px 0 30px 0; position: relative; z-index: 1; text-shadow: none; background: transparent !important; padding: 20px; border-radius: 15px; box-shadow: none; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; transition: all 0.3s ease;" 
-                        onmouseover="this.style.background='transparent'; this.style.transform='translateY(-5px)'; this.style.boxShadow='none'" 
-                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        Nuestra misión es apoyarte en mantener un <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">equilibrio óptimo</span> en tu microbiota intestinal. Este balance es <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">esencial para una digestión saludable</span>.
-                      </p>
-                    </div>
-                      
-                    <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-start;">
-                      <!-- Botón de acción premium -->
-                      <div style="margin-top: -40px; position: relative; z-index: 20; overflow: visible;">
-                        <a href="productos.html#probioticos" class="btn-premium" style="display: inline-block; width: auto; padding: 14px 36px; background: #ffcffa; background-image: none; color: #056afa; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(211,178,194,0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 28px rgba(211,178,194,0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(211,178,194,0.4)'">
-                          <i class="fas fa-bacterium" style="margin-right: 10px;"></i> DESCUBRIR PRODUCTOS
-                        </a>
-                      </div>
-                      
-                      <!-- Puntos decorativos -->
-                      <div style="display: flex; gap: 15px; margin-top: 25px; position: relative; z-index: 1;">
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.8;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.6;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.4;"></div>
-                      </div>
-                    </div>
-                    
-                    <!-- Elemento decorativo circular en esquina -->
-                    <div style="position: absolute; top: 40px; left: 30px; width: 60px; height: 60px; border: 3px solid rgba(5,106,250,0.15); border-radius: 50%; z-index: 0;"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 3: Fortalecimiento Natural del Sistema Inmunológico - Diseño Premium -->
-            <div class="carousel-item" style="height: 100%; display: flex; align-items: center; justify-content: center; padding: 0 50px; background: transparent !important;">
-              <div style="display: flex; width: 100%; max-width: 1600px; margin: 0 auto; height: 600px; position: relative; gap: 30px; background: transparent;">
-                <!-- Fondo general del slide con textura sutil -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTQ0MCAxNDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0tMTAgLTEwIGwxNSAxNSBNLTIwIDAgeDE0NDAgTTAgLTIwICAwIDE0NDAiIHN0cm9rZT0icmdiYSgyNTUsIDI0MiwgMjIzLCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+'); background-size: 30px 30px; opacity: 0.3; z-index: 0;"></div>
-                
-                <!-- Contenedor de la imagen con borde redondeado -->
-                <div style="width: 52%; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; background: transparent !important;">
-                  <div style="width: 95%; height: 90%; background: none !important; border-radius: 30px; overflow: hidden; position: relative; box-shadow: none !important; transition: all 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                    <!-- Textura sutil para el fondo de la imagen -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjMwIiBjeD0iMzAiIHI9IjE1Ii8+PC9nPjwvc3ZnPg=='); background-size: 120px 120px; opacity: 0.3; z-index: 1;"></div>
-                    
-                    <!-- Elementos decorativos circulares -->
-                    <div style="position: absolute; top: 40px; left: 40px; width: 120px; height: 120px; border: 2px solid rgba(5,106,250,0.15); border-radius: 50%; z-index: 1 !important;"></div>
-                    <div style="position: absolute; top: 60px; left: 60px; width: 80px; height: 80px; border: 2px solid rgba(5,106,250,0.1); border-radius: 50%; z-index: 1 !important;"></div>
-                    
-                    <!-- Imagen del producto con efectos premium -->
-                    <img src="recursos/carrusel/ArtikOM3__2024_V4.webp" alt="Fortalecimiento del sistema inmune" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.8s ease; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15)); z-index: 999 !important; position: relative;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" class="carousel-product-image">
-                    
-                    <!-- Resplandor decorativo -->
-                    <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(5,106,250,0.05) 0%, rgba(5,106,250,0) 70%); z-index: 1;"></div>
-                  </div>
-                </div>
-                
-                <!-- Contenido informativo con diseño ULTRA premium y borde redondeado -->
-                <div style="width: 48%; position: relative; z-index: 2; background: transparent !important;">
-                  <!-- Animación de fondo flotante -->
-                  <div class="floating-bg" style="position: absolute; width: 500px; height: 500px; background: none !important; border-radius: 50%; filter: none !important; z-index: -1; animation: none !important;"></div>
-                  
-                  <!-- Contenedor principal con efecto glassmorphism premium transparente -->
-                  <div style="width: 100%; padding: 30px 50px 50px; background: transparent !important; border-radius: 30px; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; position: relative; overflow: hidden; transition: none !important; display: flex; flex-direction: column;" 
-                    onmouseover="" 
-                    onmouseout="">
-                    
-                    <!-- Elementos decorativos flotantes -->
-                    <div style="position: absolute; bottom: -80px; left: -30px; width: 200px; height: 200px; border-radius: 50%; background: none !important; animation: none !important;"></div>
-                    
-                    <!-- Partículas flotantes -->                    
-                    <div class="particle" style="position: absolute; width: 8px; height: 8px; border-radius: 50%; background: transparent !important; top: 15%; left: 10%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 12px; height: 12px; border-radius: 50%; background: transparent !important; top: 70%; left: 85%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 6px; height: 6px; border-radius: 50%; background: transparent !important; top: 30%; left: 80%; filter: none !important; animation: none !important;"></div>
-                    
-                    <!-- Bordes brillantes animados -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border-radius: 30px; box-shadow: none !important; overflow: hidden;">
-                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: none !important; animation: none !important;"></div>
-                    </div>
-                    
-                    <div style="width: 100%; flex-grow: 1; position: relative;">
-                      <!-- Efecto de texto con resplandor -->
-                      <div style="position: absolute; top: -10px; left: -20px; width: 140%; height: 100%; background: none !important; z-index: 0; filter: none !important;"></div>
-                      
-                      <!-- Título con tipografía 3D y animada -->
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: none !important; animation: none !important;">
-                          Fortalecimiento
-                          <span style="position: absolute; bottom: -5px; left: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <div class="subtitle-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px; transform-style: preserve-3d;">
-                        <h3 style="font-size: 2.5rem; font-weight: 700; color: #ffcffa; line-height: 1.1; margin: 0; display: inline-block; text-shadow: 0 5px 15px rgba(255,207,250,0.3); background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); -webkit-background-clip: text; background-clip: text; color: transparent; animation: subtitle-pulse 5s ease-in-out infinite alternate;">
-                          natural
-                        </h3>
-                      </div>
-                      
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 30px; transform-style: preserve-3d;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: translateZ(10px); animation: title-float 4s ease-in-out infinite alternate 1s;">
-                          del sistema inmunológico
-                          <span style="position: absolute; bottom: -5px; right: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <!-- Línea decorativa con efecto brillante avanzado -->
-                      <div style="width: 150px; height: 4px; background: transparent !important; margin-bottom: 30px; border-radius: 4px; position: relative; overflow: hidden; box-shadow: none !important;">
-                        <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: none !important; animation: none !important; z-index: 2;"></div>
-                      </div>
-                      
-                      <!-- Texto principal con estilo premium y efecto hover interactivo -->
-                      <p style="font-size: 1.2rem; line-height: 1.8; color: #333; font-weight: 400; margin: -50px 0 30px 0; position: relative; z-index: 1; text-shadow: none; background: transparent !important; padding: 20px; border-radius: 15px; box-shadow: none; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; transition: all 0.3s ease;" 
-                        onmouseover="this.style.background='transparent'; this.style.transform='translateY(-5px)'; this.style.boxShadow='none'" 
-                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        Combinamos <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">ciencia y naturaleza</span> para proporcionarte una solución integral. Nuestro objetivo es que disfrutes de una <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">vida más saludable</span>.
-                      </p>
-                    </div>
-                      
-                    <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-start;">
-                      <!-- Botón de acción premium -->
-                      <div style="margin-top: -40px; position: relative; z-index: 20; overflow: visible;">
-                        <a href="productos.html#inmunologico" class="btn-premium" style="display: inline-block; width: auto; padding: 14px 36px; background: #ffcffa; background-image: none; color: #056afa; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(211,178,194,0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 28px rgba(211,178,194,0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(211,178,194,0.4)'">
-                          <i class="fas fa-shield-virus" style="margin-right: 10px;"></i> DESCUBRIR PRODUCTOS
-                        </a>
-                      </div>
-                      
-                      <!-- Puntos decorativos -->
-                      <div style="display: flex; gap: 15px; margin-top: 25px; position: relative; z-index: 1;">
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.8;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.6;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.4;"></div>
-                      </div>
-                    </div>
-                    
-                    <!-- Puntos decorativos -->
-                    <div style="display: flex; gap: 15px; margin-top: 25px; position: relative; z-index: 1;">
-                      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.8;"></div>
-                      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.6;"></div>
-                      <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.4;"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 4: Compromiso con tu Salud - Diseño Premium -->
-            <div class="carousel-item" style="height: 100%; display: flex; align-items: center; justify-content: center; padding: 0 50px; background: transparent !important;">
-              <div style="display: flex; width: 100%; max-width: 1600px; margin: 0 auto; height: 600px; position: relative; gap: 30px; background: transparent;">
-                <!-- Fondo general del slide con textura sutil -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTQ0MCAxNDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0tMTAgLTEwIGwxNSAxNSBNLTIwIDAgeDE0NDAgTTAgLTIwICAwIDE0NDAiIHN0cm9rZT0icmdiYSg5OCwgMjAwLCAyNDMsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4='); background-size: 30px 30px; opacity: 0.3; z-index: 0;"></div>
-                
-                <!-- Contenedor de la imagen con borde redondeado -->
-                <div style="width: 52%; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; background: transparent !important;">
-                  <div style="width: 95%; height: 90%; background: none !important; border-radius: 30px; overflow: hidden; position: relative; box-shadow: none !important; transition: all 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                    <!-- Textura sutil para el fondo de la imagen -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: none !important; z-index: 1;"></div>
-                    
-                    <!-- Elementos decorativos circulares -->
-                    <div style="position: absolute; top: 40px; right: 40px; width: 120px; height: 120px; border: 2px solid rgba(255,242,223,0.3); border-radius: 50%; z-index: 1 !important;"></div>
-                    <div style="position: absolute; bottom: 60px; left: 40px; width: 160px; height: 160px; border: 2px solid rgba(255,242,223,0.2); border-radius: 50%; z-index: 1 !important;"></div>
-                    
-                    <!-- Imagen del producto con efectos premium -->
-                    <img src="recursos/carrusel/InmBox__2024_V4.webp" alt="Compromiso con tu salud" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.8s ease; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15)); z-index: 999 !important; position: relative;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" class="carousel-product-image">
-                    
-                    <!-- Resplandor decorativo -->
-                    <div style="position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%); z-index: 1;"></div>
-                  </div>
-                </div>
-                
-                <!-- Contenido informativo con diseño ULTRA premium y borde redondeado -->
-                <div style="width: 48%; position: relative; z-index: 2; background: transparent !important;">
-                  <!-- Animación de fondo flotante -->
-                  <div class="floating-bg" style="position: absolute; width: 500px; height: 500px; background: none !important; border-radius: 50%; filter: none !important; z-index: -1; animation: none !important;"></div>
-                  
-                  <!-- Contenedor principal con efecto glassmorphism premium transparente -->
-                  <div style="width: 100%; padding: 30px 50px 50px; background: transparent !important; border-radius: 30px; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; position: relative; overflow: hidden; transition: none !important; display: flex; flex-direction: column;" 
-                    onmouseover="" 
-                    onmouseout="">
-                    
-                    <!-- Elementos decorativos flotantes -->
-                    <div style="position: absolute; bottom: -80px; left: -30px; width: 200px; height: 200px; border-radius: 50%; background: none !important; animation: none !important;"></div>
-                    
-                    <!-- Partículas flotantes -->                    
-                    <div class="particle" style="position: absolute; width: 8px; height: 8px; border-radius: 50%; background: transparent !important; top: 15%; left: 10%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 12px; height: 12px; border-radius: 50%; background: transparent !important; top: 70%; left: 85%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 6px; height: 6px; border-radius: 50%; background: transparent !important; top: 30%; left: 80%; filter: none !important; animation: none !important;"></div>
-                    
-                    <!-- Bordes brillantes animados -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border-radius: 30px; box-shadow: none !important; overflow: hidden;">
-                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: none !important; animation: none !important;"></div>
-                    </div>
-                    
-                    <div style="width: 100%; flex-grow: 1; position: relative;">
-                      <!-- Efecto de texto con resplandor -->
-                      <div style="position: absolute; top: -10px; left: -20px; width: 140%; height: 100%; background: none !important; z-index: 0; filter: none !important;"></div>
-                      
-                      <!-- Título con tipografía 3D y animada -->
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: none !important; animation: none !important;">
-                          Compromiso
-                          <span style="position: absolute; bottom: -5px; left: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <div class="subtitle-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px; transform-style: preserve-3d;">
-                        <h3 style="font-size: 2.5rem; font-weight: 700; color: #ffcffa; line-height: 1.1; margin: 0; display: inline-block; text-shadow: 0 5px 15px rgba(255,207,250,0.3); background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); -webkit-background-clip: text; background-clip: text; color: transparent; animation: subtitle-pulse 5s ease-in-out infinite alternate;">
-                          con tu
-                        </h3>
-                      </div>
-                      
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 30px; transform-style: preserve-3d;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: translateZ(10px); animation: title-float 4s ease-in-out infinite alternate 1s;">
-                          salud
-                          <span style="position: absolute; bottom: -5px; right: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <!-- Línea decorativa con efecto brillante avanzado -->
-                      <div style="width: 150px; height: 4px; background: transparent !important; margin-bottom: 30px; border-radius: 4px; position: relative; overflow: hidden; box-shadow: none !important;">
-                        <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: none !important; animation: none !important; z-index: 2;"></div>
-                      </div>
-                      
-                      <!-- Texto principal con estilo premium y efecto hover interactivo -->
-                      <p style="font-size: 1.2rem; line-height: 1.8; color: #333; font-weight: 400; margin: 0 0 30px 0; position: relative; z-index: 1; text-shadow: none; background: transparent !important; padding: 20px; border-radius: 15px; box-shadow: none; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; transition: all 0.3s ease;" 
-                        onmouseover="this.style.background='transparent'; this.style.transform='translateY(-5px)'; this.style.boxShadow='none'" 
-                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        Combinamos <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">ciencia y naturaleza</span> para proporcionarte una solución integral. Nuestro objetivo es que disfrutes de una <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">vida más saludable</span>.
-                      </p>
-                    </div>
-                      
-                    <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-start;">
-                      <!-- Botón de acción premium -->
-                      <div style="margin-top: -40px; position: relative; z-index: 20; overflow: visible;">
-                        <a href="nosotros.html" class="btn-premium" style="display: inline-block; width: auto; padding: 14px 36px; background: #ffcffa; background-image: none; color: #056afa; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(211,178,194,0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 28px rgba(211,178,194,0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(211,178,194,0.4)'">
-                          <i class="fas fa-heart" style="margin-right: 10px;"></i> Conoce nuestra historia
-                        </a>
-                      </div>
-                    
-                      <!-- Puntos decorativos -->
-                      <div style="display: flex; gap: 15px; margin-top: 25px; position: relative; z-index: 1;">
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.8;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.6;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.4;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 5: Calidad y excelencia garantizada - Diseño Premium -->
-            <div class="carousel-item" style="height: 100%; display: flex; align-items: center; justify-content: center; padding: 0 50px; background: transparent !important;">
-              <div style="display: flex; width: 100%; max-width: 1600px; margin: 0 auto; height: 600px; position: relative; gap: 30px; background: transparent;">
-                <!-- Fondo general del slide con textura sutil -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTQ0MCAxNDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0tMTAgLTEwIGwxNSAxNSBNLTIwIDAgeDE0NDAgTTAgLTIwICAwIDE0NDAiIHN0cm9rZT0icmdiYSg5OCwgMjAwLCAyNDMsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4='); background-size: 30px 30px; opacity: 0.3; z-index: 0;"></div>
-                
-                <!-- Contenedor de la imagen con borde redondeado -->
-                <div style="width: 52%; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; background: transparent !important;">
-                  <div style="width: 95%; height: 90%; background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-radius: 30px; overflow: hidden; position: relative; box-shadow: none; transition: all 0.5s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                    <!-- Textura sutil para el fondo de la imagen -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: none !important; z-index: 1;"></div>
-                    
-                    <!-- Imagen del producto con efectos premium -->
-                    <img src="recursos/carrusel/CelestinFT__2024_V3.webp" alt="Calidad y excelencia garantizada" style="object-fit: cover; width: 100%; height: 100%; transition: transform 0.8s ease; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15)); z-index: 999 !important; position: relative;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" class="carousel-product-image">
-                    
-                    <!-- Resplandor decorativo -->
-                    <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: none !important; z-index: 1;"></div>
-                    
-                    <!-- Elementos decorativos circulares -->
-                    <div style="position: absolute; top: 40px; left: -50px; width: 120px; height: 120px; border: none !important; border-radius: 50%; z-index: 1 !important;"></div>
-                    <div style="position: absolute; top: 60px; left: -60px; width: 80px; height: 80px; border: none !important; border-radius: 50%; z-index: 1 !important;"></div>
-                  </div>
-                </div>
-                
-                <!-- Contenido informativo con diseño ULTRA premium y borde redondeado -->
-                <div style="width: 48%; position: relative; z-index: 2; background: transparent !important;">
-                  <!-- Animación de fondo flotante -->
-                  <div class="floating-bg" style="position: absolute; width: 500px; height: 500px; background: none !important; border-radius: 50%; filter: none !important; z-index: -1; animation: none !important;"></div>
-                  
-                  <!-- Contenedor principal con efecto glassmorphism premium transparente -->
-                  <div style="width: 100%; padding: 30px 50px 50px; background: transparent !important; border-radius: 30px; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; position: relative; overflow: hidden; transition: none !important; display: flex; flex-direction: column;" 
-                    onmouseover="" 
-                    onmouseout="">
-                    
-                    <!-- Elementos decorativos flotantes -->
-                    <div style="position: absolute; bottom: -80px; left: -30px; width: 200px; height: 200px; border-radius: 50%; background: none !important; animation: none !important;"></div>
-                    
-                    <!-- Partículas flotantes -->                    
-                    <div class="particle" style="position: absolute; width: 8px; height: 8px; border-radius: 50%; background: transparent !important; top: 15%; left: 10%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 12px; height: 12px; border-radius: 50%; background: transparent !important; top: 70%; left: 85%; filter: none !important; animation: none !important;"></div>
-                    <div class="particle" style="position: absolute; width: 6px; height: 6px; border-radius: 50%; background: transparent !important; top: 30%; left: 80%; filter: none !important; animation: none !important;"></div>
-                    
-                    <!-- Bordes brillantes animados -->
-                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; border-radius: 30px; box-shadow: none !important; overflow: hidden;">
-                        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: none !important; animation: none !important;"></div>
-                    </div>
-                    
-                    <div style="width: 100%; flex-grow: 1; position: relative;">
-                      <!-- Efecto de texto con resplandor -->
-                      <div style="position: absolute; top: -10px; left: -20px; width: 140%; height: 100%; background: none !important; z-index: 0; filter: none !important;"></div>
-                      
-                      <!-- Título con tipografía 3D y animada -->
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: none !important; animation: none !important;">
-                          Calidad
-                          <span style="position: absolute; bottom: -5px; left: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <div class="subtitle-wrapper" style="position: relative; z-index: 2; margin-bottom: 15px; transform-style: preserve-3d;">
-                        <h3 style="font-size: 2.5rem; font-weight: 700; color: #ffcffa; line-height: 1.1; margin: 0; display: inline-block; text-shadow: 0 5px 15px rgba(255,207,250,0.3); background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); -webkit-background-clip: text; background-clip: text; color: transparent; animation: subtitle-pulse 5s ease-in-out infinite alternate;">
-                          y excelencia
-                        </h3>
-                      </div>
-                      
-                      <div class="title-wrapper" style="position: relative; z-index: 2; margin-bottom: 30px; transform-style: preserve-3d;">
-                        <h2 class="premium-title" style="font-size: 3rem; font-weight: 900; color: #056afa; line-height: 1.1; margin: 0; position: relative; display: inline-block; text-shadow: none !important; transform: translateZ(10px); animation: title-float 4s ease-in-out infinite alternate 1s;">
-                          garantizada
-                          <span style="position: absolute; bottom: -5px; right: 0; width: 30%; height: 4px; background: none !important; border-radius: 4px;"></span>
-                        </h2>
-                      </div>
-                      
-                      <!-- Línea decorativa con efecto brillante avanzado -->
-                      <div style="width: 150px; height: 4px; background: transparent !important; margin-bottom: 30px; border-radius: 4px; position: relative; overflow: hidden; box-shadow: none !important;">
-                        <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: none !important; animation: none !important; z-index: 2;"></div>
-                      </div>
-                      
-                      <!-- Texto principal con estilo premium y efecto hover interactivo -->
-                      <p style="font-size: 1.2rem; line-height: 1.8; color: #333; font-weight: 400; margin: 0 0 30px 0; position: relative; z-index: 1; text-shadow: none; background: transparent !important; padding: 20px; border-radius: 15px; box-shadow: none; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; transition: all 0.3s ease;" 
-                        onmouseover="this.style.background='transparent'; this.style.transform='translateY(-5px)'; this.style.boxShadow='none'" 
-                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                        Cada producto que ofrecemos cumple con los <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">más altos estándares de calidad</span>. Nuestro compromiso es brindarte <span style="font-weight: 700; color: #056afa; text-shadow: 0 2px 5px rgba(5,106,250,0.2);">soluciones confiables y efectivas</span>.
-                      </p>
-                    </div>
-                      
-                    <div style="width: 100%; display: flex; flex-direction: column; align-items: flex-start;">
-                      <!-- Botón de acción premium -->
-                      <div style="margin-top: -40px; position: relative; z-index: 20; overflow: visible;">
-                        <a href="productos.html" class="btn-premium" style="display: inline-block; width: auto; padding: 14px 36px; background: #ffcffa; background-image: none; color: #056afa; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(211,178,194,0.4);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 28px rgba(211,178,194,0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(211,178,194,0.4)'">
-                          <i class="fas fa-certificate" style="margin-right: 10px;"></i> Ver certificaciones
-                        </a>
-                      </div>
-                    
-                      <!-- Puntos decorativos -->
-                      <div style="display: flex; gap: 15px; margin-top: 25px; position: relative; z-index: 1;">
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.8;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.6;"></div>
-                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffcffa; opacity: 0.4;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Controles del carrusel con diseño ultra premium -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev" style="width: 60px; height: 60px; background: transparent !important; border-radius: 50%; top: 50%; transform: translateY(-50%); left: 30px; opacity: 0.7; transition: all 0.3s ease; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: none; box-shadow: none;">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 30px; height: 30px;"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselMain" data-bs-slide="next" style="width: 60px; height: 60px; background: transparent !important; border-radius: 50%; top: 50%; transform: translateY(-50%); right: 30px; opacity: 0.7; transition: all 0.3s ease; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border: none; box-shadow: none;">
-            <span class="carousel-control-next-icon" aria-hidden="true" style="width: 30px; height: 30px;"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
-          
-          <!-- Indicadores del carrusel eliminados -->
-          
-          <!-- Script para mejorar interactividad en hover de los controles -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              // Efectos de hover para botones de navegación
-              const prevButton = document.querySelector('.carousel-control-prev');
-              const nextButton = document.querySelector('.carousel-control-next');
-              
-              function addHoverEffect(button) {
-                button.addEventListener('mouseenter', function() {
-                  this.style.transform = 'translateY(-50%) scale(1.05)';
-                  this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.4)';
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                  this.style.transform = 'translateY(-50%) scale(1)';
-                  this.style.boxShadow = '0 3px 15px rgba(0,0,0,0.3)';
-                });
-              }
-              
-              addHoverEffect(prevButton);
-              addHoverEffect(nextButton);
-              
-              // Código de los indicadores eliminado
-              
-              // El código para actualizar los indicadores ha sido eliminado
-              const carousel = document.getElementById('carouselMain');
-            });
-          </script>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Enlaces a aplicaciones móviles -->
-  <section class="app-section" style="background-color: transparent; padding: 40px 0;">
-    <div class="container">
-      <div class="app-content" style="text-align: center; position: relative; padding: 60px 20px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); border-radius: 30px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);">
-        <!-- Elementos decorativos de fondo -->
-        <div style="position: absolute; top: -50px; left: -50px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(98, 200, 243, 0.1) 0%, rgba(98, 200, 243, 0) 70%);"></div>
-        <div style="position: absolute; bottom: -70px; right: -70px; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 207, 250, 0.15) 0%, rgba(255, 207, 250, 0) 70%);"></div>
-        
-        <!-- Icono decorativo -->
-        <div style="margin: 0 auto 30px; width: 90px; height: 90px; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(5, 106, 250, 0.2); transform: rotate(12deg);">
-          <i class="fas fa-mobile-alt" style="font-size: 3rem; color: white;"></i>
-        </div>
-        
-        <h2 style="font-size: 2.5rem; font-weight: 800; color: #056afa; margin-bottom: 20px; position: relative; display: inline-block;">
-          Lleva tu salud contigo
-          <span style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: linear-gradient(to right, #056afa, #417ecd); border-radius: 4px;"></span>
-        </h2>
-        
-        <p style="max-width: 800px; margin: 30px auto; font-size: 1.15rem; line-height: 1.7; color: #333; font-weight: 400;">Mantén tu salud al día con nuestra aplicación móvil premium. Haz seguimiento de tus suplementos, recibe recordatorios personalizados y obtén consejos exclusivos para optimizar tu bienestar inmunológico en cualquier momento y lugar.</p>
-        
-        <div class="app-features" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 40px 0;">
-          <div class="app-feature" style="display: flex; align-items: center; background: white; padding: 15px 25px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.04); border: 1px solid rgba(5,106,250,0.06);">
-            <div style="width: 50px; height: 50px; min-width: 50px; border-radius: 50%; background: linear-gradient(135deg, #fff2df 0%, #fff2df 100%); display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-              <i class="fas fa-bell" style="color: #056afa; font-size: 1.2rem;"></i>
-            </div>
-            <span style="font-weight: 600; color: #333;">Recordatorios inteligentes</span>
-          </div>
-          <div class="app-feature" style="display: flex; align-items: center; background: white; padding: 15px 25px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.04); border: 1px solid rgba(5,106,250,0.06);">
-            <div style="width: 50px; height: 50px; min-width: 50px; border-radius: 50%; background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-              <i class="fas fa-chart-line" style="color: white; font-size: 1.2rem;"></i>
-            </div>
-            <span style="font-weight: 600; color: #333;">Seguimiento de resultados</span>
-          </div>
-          <div class="app-feature" style="display: flex; align-items: center; background: white; padding: 15px 25px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.04); border: 1px solid rgba(5,106,250,0.06);">
-            <div style="width: 50px; height: 50px; min-width: 50px; border-radius: 50%; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-              <i class="fas fa-user-md" style="color: white; font-size: 1.2rem;"></i>
-            </div>
-            <span style="font-weight: 600; color: #333;">Consultas virtuales</span>
-          </div>
-        </div>
-        
-        <div class="app-links" style="display: flex; justify-content: center; gap: 15px; margin-top: 30px;">
-          <a href="https://apps.apple.com/mx/app/inmunoapp/id1467825652" target="_blank" class="app-btn" style="background: linear-gradient(135deg, #056afa, #3466c9); color: white; padding: 16px 30px; border-radius: 15px; display: inline-flex; align-items: center; text-decoration: none; box-shadow: 0 10px 20px rgba(5,106,250,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 30px rgba(5,106,250,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(5,106,250,0.2)'">
-            <i class="fab fa-apple" style="margin-right: 12px; font-size: 1.4rem;"></i>
-            <div style="text-align: left;">
-              <span style="display: block; font-size: 0.7rem; opacity: 0.8;">Descargar en</span>
-              <span style="font-weight: 600; font-size: 1rem;">App Store</span>
-            </div>
+  <header>
+    <div>
+      <nav>
+        <div>
+          <a href="/">
+            <img src="/static/images/logo.png" alt="InmunoMedi Logo">
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.inteligeniapps.app4c&hl=es&pli=1" target="_blank" class="app-btn" style="background: linear-gradient(135deg, #056afa, #3466c9); color: white; padding: 16px 30px; border-radius: 15px; display: inline-flex; align-items: center; text-decoration: none; box-shadow: 0 10px 20px rgba(5,106,250,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 30px rgba(5,106,250,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(5,106,250,0.2)'">
-            <i class="fab fa-google-play" style="margin-right: 12px; font-size: 1.4rem;"></i>
-            <div style="text-align: left;">
-              <span style="display: block; font-size: 0.7rem; opacity: 0.8;">Disponible en</span>
-              <span style="font-weight: 600; font-size: 1rem;">Play Store</span>
-            </div>
-          </a>
-        </div>
-        
-        <!-- Mockup flotante para móvil -->
-        <div style="margin-top: 40px; position: relative;">
-          <div style="max-width: 280px; margin: 0 auto; position: relative; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));">
-            <img src="img/app-mockup.png" alt="InmunoMedi App" style="width: 100%; height: auto; border-radius: 30px; border: 10px solid #333;" onerror="this.style.display='none'; document.getElementById('app-mockup-placeholder').style.display='block';">
-            <div id="app-mockup-placeholder" style="display: none; width: 260px; height: 520px; background: linear-gradient(45deg, #f5f5f5, #e0e0e0); border-radius: 30px; position: relative; padding: 20px; border: 10px solid #333;">
-              <div style="background: #056afa; color: white; padding: 15px; border-radius: 15px; text-align: left; margin-bottom: 20px;">
-                <h4 style="margin: 0 0 10px; font-size: 1.2rem;">InmunoMedi</h4>
-                <p style="margin: 0; font-size: 0.8rem;">Tu salud inmunológica siempre contigo</p>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 15px;">
-                <div style="background: white; border-radius: 10px; height: 80px;"></div>
-                <div style="background: white; border-radius: 10px; height: 80px;"></div>
-                <div style="background: white; border-radius: 10px; height: 80px;"></div>
-              </div>
-              <div style="position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: space-around;">
-                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e0e0e0;"></div>
-                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e0e0e0;"></div>
-                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e0e0e0;"></div>
-              </div>
-            </div>
+          <div>
+            <a href="/products">Productos</a>
+            <a href="/about">Nosotros</a>
+            <a href="/contact">Contacto</a>
+            <a href="/cart">Carrito</a>
           </div>
         </div>
-      </div>
+        <div>
+          <button>ES</button>
+          <button>
+            <img src="/static/images/cart-icon.png" alt="Cart">
+          </button>
+        </div>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Sección de Beneficios Premium con nueva paleta de colores -->
-  <section id="beneficios" class="beneficios-section" style="padding: 100px 0; position: relative; background: transparent; overflow: hidden;">
-    <!-- Elementos decorativos de fondo -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTQ0MCAxNDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0tMTAgLTEwIGwxNSAxNSBNLTIwIDAgeDE0NDAgTTAgLTIwICAwIDE0NDAiIHN0cm9rZT0icmdiYSg1LCAxMDYsIDI1MCwgMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg=='); background-size: 30px 30px; opacity: 0.4; z-index: 0;"></div>
-    
-    <div class="container" style="position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 30px;">
-      <!-- Encabezado de sección premium -->
-      <div class="section-header" style="text-align: center; margin-bottom: 70px; position: relative;">
-        <h2 style="font-size: 2.8rem; font-weight: 800; color: #056afa; margin-bottom: 20px; position: relative; display: inline-block;">
-          Beneficios de nuestros productos
-          <!-- Línea decorativa bajo el título -->
-          <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(to right, #056afa, #417ecd); border-radius: 4px;"></span>
-        </h2>
-        <p style="font-size: 1.2rem; color: #417ecd; max-width: 700px; margin: 25px auto 0; font-weight: 400; opacity: 0.9;">Descubre cómo nuestros productos premium pueden fortalecer tu sistema inmunológico y mejorar tu calidad de vida</p>
-      </div>
-      
-      <!-- Grid de beneficios con diseño premium -->
-      <div class="beneficios-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; position: relative;">
-        <!-- Beneficio 1: Protección inmunológica -->
-        <div class="beneficio-card animate-on-scroll fade-left" style="background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; overflow: hidden; border: 1px solid rgba(5,106,250,0.08);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'">
-          <!-- Círculo decorativo de fondo -->
-          <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, rgba(5,106,250,0.05) 0%, rgba(5,106,250,0) 70%);"></div>
-          
-          <!-- Icono con estilo premium -->
-          <div class="beneficio-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; box-shadow: 0 10px 20px rgba(5,106,250,0.2);">
-            <i class="fas fa-shield-virus" style="font-size: 2rem; color: white;"></i>
+  <main>
+    <section>
+      <div>
+        <div>
+          <div>
+            <h1>Revoluciona</h1>
+            <h2>Tu Sistema Inmune</h2>
           </div>
-          
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #056afa;">Protección inmunológica</h3>
-          <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin: 0;">Potencia las defensas naturales de tu cuerpo contra infecciones y enfermedades con nuestros suplementos de Factor de Transferencia.</p>
-        </div>
-        
-        <!-- Beneficio 2: Salud cardiovascular -->
-        <div class="beneficio-card animate-on-scroll fade-up" style="background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; overflow: hidden; border: 1px solid rgba(5,106,250,0.08);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'">
-          <!-- Círculo decorativo de fondo -->
-          <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, rgba(5,106,250,0.05) 0%, rgba(5,106,250,0) 70%);"></div>
-          
-          <!-- Icono con estilo premium -->
-          <div class="beneficio-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; box-shadow: 0 10px 20px rgba(211,178,194,0.3);">
-            <i class="fas fa-heartbeat" style="font-size: 2rem; color: white;"></i>
-          </div>
-          
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #056afa;">Salud cardiovascular</h3>
-          <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin: 0;">Apoya el funcionamiento óptimo del corazón y mantiene tus arterias saludables con nuestros suplementos especializados.</p>
-        </div>
-        
-        <!-- Beneficio 3: Equilibrio intestinal -->
-        <div class="beneficio-card animate-on-scroll fade-right" style="background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; overflow: hidden; border: 1px solid rgba(5,106,250,0.08);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'">
-          <!-- Círculo decorativo de fondo -->
-          <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, rgba(5,106,250,0.05) 0%, rgba(5,106,250,0) 70%);"></div>
-          
-          <!-- Icono con estilo premium -->
-          <div class="beneficio-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; box-shadow: 0 10px 20px rgba(5,106,250,0.2);">
-            <i class="fas fa-bacteria" style="font-size: 2rem; color: white;"></i>
-          </div>
-          
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #056afa;">Equilibrio intestinal</h3>
-          <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin: 0;">Favorece la salud de tu microbiota para una mejor digestión y absorción de nutrientes con nuestros probióticos avanzados.</p>
-        </div>
-        
-        <!-- Beneficio 4: Antienvejecimiento -->
-        <div class="beneficio-card animate-on-scroll fade-left" style="background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; overflow: hidden; border: 1px solid rgba(5,106,250,0.08);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'">
-          <!-- Círculo decorativo de fondo -->
-          <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, rgba(5,106,250,0.05) 0%, rgba(5,106,250,0) 70%);"></div>
-          
-          <!-- Icono con estilo premium -->
-          <div class="beneficio-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #fff2df 0%, #fff2df 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; box-shadow: 0 10px 20px rgba(255,242,223,0.4);">
-            <i class="fas fa-hourglass-half" style="font-size: 2rem; color: #056afa;"></i>
-          </div>
-          
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #056afa;">Antienvejecimiento</h3>
-          <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin: 0;">Productos avanzados que ayudan a retrasar los signos del envejecimiento celular y mantener tu vitalidad a cualquier edad.</p>
-        </div>
-        
-        <!-- Beneficio 5: Función cognitiva -->
-        <div class="beneficio-card animate-on-scroll fade-up" style="background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; overflow: hidden; border: 1px solid rgba(5,106,250,0.08);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'">
-          <!-- Círculo decorativo de fondo -->
-          <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, rgba(5,106,250,0.05) 0%, rgba(5,106,250,0) 70%);"></div>
-          
-          <!-- Icono con estilo premium -->
-          <div class="beneficio-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #ffcffa 0%, #d3b2c2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; box-shadow: 0 10px 20px rgba(211,178,194,0.3);">
-            <i class="fas fa-brain" style="font-size: 2rem; color: white;"></i>
-          </div>
-          
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #056afa;">Función cognitiva</h3>
-          <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin: 0;">Apoyo para mantener una mente clara y memoria aguda en todas las etapas de la vida con nuestros suplementos neurocognitivos.</p>
-        </div>
-        
-        <!-- Beneficio 6: Energía natural -->
-        <div class="beneficio-card animate-on-scroll fade-right" style="background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; position: relative; overflow: hidden; border: 1px solid rgba(5,106,250,0.08);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.05)'">
-          <!-- Círculo decorativo de fondo -->
-          <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, rgba(5,106,250,0.05) 0%, rgba(5,106,250,0) 70%);"></div>
-          
-          <!-- Icono con estilo premium -->
-          <div class="beneficio-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #fff2df 0%, #fff2df 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; position: relative; box-shadow: 0 10px 20px rgba(255,242,223,0.4);">
-            <i class="fas fa-wind" style="font-size: 2rem; color: #056afa;"></i>
-          </div>
-          
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #056afa;">Energía natural</h3>
-          <p style="font-size: 1.05rem; line-height: 1.6; color: #555; margin: 0;">Incrementa tus niveles de energía sin estimulantes artificiales ni efectos secundarios, con nuestras fórmulas naturales.</p>
-        </div>
-      </div>
-      
-      <!-- Botón premium para ver todos los productos -->
-      <div style="text-align: center; margin-top: 50px;">
-        <a href="productos.html" style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); color: white; font-weight: 600; font-size: 1.1rem; text-decoration: none; border-radius: 30px; box-shadow: 0 10px 20px rgba(5,106,250,0.3); transition: all 0.3s ease; letter-spacing: 0.5px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 30px rgba(5,106,250,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(5,106,250,0.3)'">Ver todos los productos <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mini Carrito Premium -->
-  <div class="mini-cart" style="position: fixed; top: 0; right: -400px; width: 380px; height: 100vh; background: white; z-index: 1000; box-shadow: -5px 0 30px rgba(0,0,0,0.1); transition: all 0.3s ease; overflow: hidden; border-left: 1px solid rgba(5,106,250,0.08);">
-    <!-- Elementos decorativos de fondo -->
-    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(5,106,250,0.03) 0%, rgba(5,106,250,0) 70%);"></div>
-    <div style="position: absolute; bottom: 20%; left: -100px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,207,250,0.05) 0%, rgba(255,207,250,0) 70%);"></div>
-    
-    <!-- Cabecera del carrito premium -->
-    <div class="mini-cart-header" style="padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.06);">
-      <h3 style="margin: 0; font-size: 1.4rem; font-weight: 700; color: #056afa; display: flex; align-items: center;">
-        <i class="fas fa-shopping-cart" style="margin-right: 12px; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-        Tu Carrito
-      </h3>
-      <button class="close-mini-cart" style="background: none; border: none; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; background: rgba(5,106,250,0.05);" onmouseover="this.style.background='rgba(5,106,250,0.1)';" onmouseout="this.style.background='rgba(5,106,250,0.05)';">
-        <i class="fas fa-times" style="color: #056afa; font-size: 1rem;"></i>
-      </button>
-    </div>
-    
-    <!-- Contenido del carrito -->
-    <div class="mini-cart-items" style="padding: 20px 25px; height: calc(100vh - 190px); overflow-y: auto; position: relative;">
-      <!-- Mensaje inicial cuando el carrito está vacío -->
-      <div class="empty-cart" style="text-align: center; padding: 50px 20px;">
-        <div style="width: 80px; height: 80px; margin: 0 auto 20px; background: rgba(5,106,250,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-          <i class="fas fa-shopping-basket" style="font-size: 2rem; color: #056afa; opacity: 0.5;"></i>
-        </div>
-        <h4 style="margin: 0 0 10px; color: #333; font-weight: 600;">Tu carrito está vacío</h4>
-        <p style="color: #666; margin: 0 0 25px; font-size: 0.95rem;">Añade productos para fortalecer tu sistema inmunológico</p>
-        <a href="productos.html" style="display: inline-block; padding: 12px 25px; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); color: white; font-weight: 600; text-decoration: none; border-radius: 30px; box-shadow: 0 8px 15px rgba(5,106,250,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 20px rgba(5,106,250,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 15px rgba(5,106,250,0.2)'">Explorar productos</a>
-      </div>
-      
-      <!-- Los items se agregan dinámicamente con JavaScript -->
-      <!-- Template para items de carrito -->
-      <div class="cart-item-template" style="display: none; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.06);">
-        <div style="display: flex; align-items: center;">
-          <div class="item-image" style="width: 70px; height: 70px; min-width: 70px; border-radius: 15px; overflow: hidden; margin-right: 15px; border: 1px solid rgba(5,106,250,0.1);">
-            <img src="" alt="Producto" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div class="item-details" style="flex-grow: 1;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-              <h4 class="item-name" style="margin: 0; font-size: 1rem; font-weight: 600; color: #333;">Nombre del producto</h4>
-              <button class="remove-item" style="background: none; border: none; cursor: pointer; color: #aaa; font-size: 0.8rem; padding: 0;" onmouseover="this.style.color='#056afa';" onmouseout="this.style.color='#aaa';">
-                <i class="fas fa-trash-alt"></i>
-              </button>
-            </div>
-            <div class="item-variant" style="font-size: 0.85rem; color: #666; margin-bottom: 8px;">Variante: Estándar</div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div class="item-quantity-control" style="display: flex; align-items: center;">
-                <button class="quantity-btn minus" style="width: 26px; height: 26px; border: 1px solid rgba(5,106,250,0.2); border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-                  <i class="fas fa-minus" style="font-size: 0.7rem; color: #056afa;"></i>
-                </button>
-                <span class="quantity" style="margin: 0 10px; font-weight: 600; color: #333;">1</span>
-                <button class="quantity-btn plus" style="width: 26px; height: 26px; border: 1px solid rgba(5,106,250,0.2); border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-                  <i class="fas fa-plus" style="font-size: 0.7rem; color: #056afa;"></i>
-                </button>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <img src="/static/images/slide1.jpg" alt="Innovación científica">
+                  <div>
+                    <h3>Innovación</h3>
+                    <h3>y fundamento</h3>
+                    <h3>científico</h3>
+                    <p>Respaldados por la ciencia y la innovación, como distribuidores de Factor de Transferencia, nos dedicamos a ofrecer soluciones basadas en avances comprobados.</p>
+                    <a href="/products">DESCUBRIR PRODUCTOS</a>
+                  </div>
+                </div>
               </div>
-              <div class="item-price" style="font-weight: 700; color: #056afa;">$99.99</div>
+              <div>
+                <div>
+                  <img src="/static/images/slide2.jpg" alt="Equilibrio saludable">
+                  <div>
+                    <h3>Equilibrio</h3>
+                    <h3>saludable</h3>
+                    <h3>en tu microbiota</h3>
+                    <p>Nuestra misión es apoyarte en mantener un equilibrio óptimo en tu microbiota intestinal. Este balance es esencial para una digestión saludable.</p>
+                    <a href="/products">DESCUBRIR PRODUCTOS</a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="/static/images/slide3.jpg" alt="Fortalecimiento natural">
+                  <div>
+                    <h3>Fortalecimiento</h3>
+                    <h3>natural</h3>
+                    <h3>del sistema inmunológico</h3>
+                    <p>Combinamos ciencia y naturaleza para proporcionarte una solución integral. Nuestro objetivo es que disfrutes de una vida más saludable.</p>
+                    <a href="/products">DESCUBRIR PRODUCTOS</a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="/static/images/slide4.jpg" alt="Compromiso con tu salud">
+                  <div>
+                    <h3>Compromiso</h3>
+                    <h3>con tu</h3>
+                    <h3>salud</h3>
+                    <p>Combinamos ciencia y naturaleza para proporcionarte una solución integral. Nuestro objetivo es que disfrutes de una vida más saludable.</p>
+                    <a href="/about">Conoce nuestra historia</a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src="/static/images/slide5.jpg" alt="Calidad garantizada">
+                  <div>
+                    <h3>Calidad</h3>
+                    <h3>y excelencia</h3>
+                    <h3>garantizada</h3>
+                    <p>Cada producto que ofrecemos cumple con los más altos estándares de calidad. Nuestro compromiso es brindarte soluciones confiables y efectivas.</p>
+                    <a href="/certifications">Ver certificaciones</a>
+                  </div>
+                </div>
+              </div>
             </div>
+            <button>Anterior</button>
+            <button>Siguiente</button>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Footer del carrito -->
-    <div class="mini-cart-footer" style="position: absolute; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid rgba(0,0,0,0.06); padding: 20px 25px; box-shadow: 0 -5px 20px rgba(0,0,0,0.03);">
-      <div class="mini-cart-total" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <span style="font-size: 1.1rem; color: #333;">Total:</span>
-        <span style="font-size: 1.3rem; font-weight: 800; color: #056afa;">$0.00</span>
-      </div>
-      <div style="display: flex; gap: 10px;">
-        <a href="carrito.html" class="btn-primary" style="flex: 1; padding: 14px 20px; text-align: center; background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 8px 15px rgba(5,106,250,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 20px rgba(5,106,250,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 15px rgba(5,106,250,0.2)'">Ver Carrito</a>
-        <a href="checkout.html" class="btn-checkout" style="flex: 1; padding: 14px 20px; text-align: center; background: white; border: 2px solid #056afa; color: #056afa; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(5,106,250,0.05)';" onmouseout="this.style.background='white';">
-          Checkout
-        </a>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Footer Mejorado -->
-  <!-- Footer Premium con la nueva paleta de colores -->
-  <footer class="footer-premium" style="background: linear-gradient(135deg, #056afa 0%, #417ecd 100%); color: white; padding: 80px 0 30px; position: relative; margin-top: 80px; overflow: hidden;">
-    <!-- Elemento decorativo superior -->
-    <div style="position: absolute; top: -5px; left: 0; width: 100%; height: 10px; background: linear-gradient(90deg, #056afa, #fff2df, #ffcffa, #417ecd); opacity: 0.8;"></div>
-    
-    <!-- Elementos decorativos de fondo -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTQ0MCAxNDQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0tMTAgLTEwIGwxNSAxNSBNLTIwIDAgeDE0NDAgTTAgLTIwICAwIDE0NDAiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+'); background-size: 30px 30px; opacity: 0.2;"></div>
-    <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(98, 200, 243, 0.2) 0%, rgba(98, 200, 243, 0) 70%);"></div>
-    <div style="position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 207, 250, 0.15) 0%, rgba(255, 207, 250, 0) 70%);"></div>
-    
-    <div class="container" style="position: relative; z-index: 1; max-width: 1600px; margin: 0 auto; padding: 0 30px;">
-      <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
-        <!-- Logo y Descripción Premium -->
-        <div class="footer-section footer-logo" style="display: flex; flex-direction: column; align-items: flex-start;">
-          <div style="display: flex; align-items: center; margin-bottom: 20px;">
-            <div style="position: relative; width: 70px; height: 70px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-right: 15px; overflow: hidden;">
-              <img src="recursos/simbolo/SimbFCT.png" alt="Logo Inmunomedi" class="logo" width="50" height="50" style="object-fit: contain;">
-              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 70% 70%, rgba(255,242,223,0.4) 0%, rgba(255,242,223,0) 60%);"></div>
+    <section>
+      <div>
+        <div>
+          <h2>Lleva tu salud contigo</h2>
+          <p>Mantén tu salud al día con nuestra aplicación móvil premium. Haz seguimiento de tus suplementos, recibe recordatorios personalizados y obtén consejos exclusivos para optimizar tu bienestar inmunológico en cualquier momento y lugar.</p>
+          <div>
+            <div>
+              <img src="/static/images/icon-reminders.png" alt="Recordatorios">
+              <h3>Recordatorios inteligentes</h3>
             </div>
-            <h3 style="font-size: 1.8rem; font-weight: 800; color: white; margin: 0; text-shadow: 1px 2px 4px rgba(0,0,0,0.1); letter-spacing: -0.5px;">InmunoMedi</h3>
+            <div>
+              <img src="/static/images/icon-tracking.png" alt="Seguimiento">
+              <h3>Seguimiento de resultados</h3>
+            </div>
+            <div>
+              <img src="/static/images/icon-consultations.png" alt="Consultas">
+              <h3>Consultas virtuales</h3>
+            </div>
           </div>
-          <p class="footer-description" style="font-size: 1.05rem; line-height: 1.6; opacity: 0.9; max-width: 350px; margin-bottom: 25px; text-shadow: 0 1px 2px rgba(0,0,0,0.05);">Fortalece tu sistema inmune con soluciones innovadoras y naturales. Somos distribuidores de Factor de Transferencia y suplementos premium.</p>
-          
-          <!-- Redes Sociales Mejoradas -->
-          <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; color: #fff2df;">Síguenos</h4>
-          <div class="social-links" style="display: flex; gap: 15px;">
-            <a href="https://www.facebook.com/FactorTransferenciaICelestinFT/" target="_blank" aria-label="Facebook" style="width: 45px; height: 45px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);" onmouseover="this.style.background='rgba(255,242,223,0.2)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'">
-              <i class="fab fa-facebook-f" style="font-size: 1.2rem; color: white;"></i>
+          <div>
+            <a href="https://www.apple.com/app-store/" target="_blank">
+              <img src="/static/images/app-store.png" alt="Descargar en App Store">
             </a>
-            <a href="https://www.instagram.com/distribuidorinmunomedi" target="_blank" aria-label="Instagram" style="width: 45px; height: 45px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);" onmouseover="this.style.background='rgba(255,242,223,0.2)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'">
-              <i class="fab fa-instagram" style="font-size: 1.2rem; color: white;"></i>
-            </a>
-            <a href="https://wa.me/55560298059" target="_blank" aria-label="WhatsApp" style="width: 45px; height: 45px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px);" onmouseover="this.style.background='rgba(255,242,223,0.2)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'">
-              <i class="fab fa-whatsapp" style="font-size: 1.2rem; color: white;"></i>
+            <a href="https://play.google.com/store" target="_blank">
+              <img src="/static/images/play-store.png" alt="Disponible en Play Store">
             </a>
           </div>
+          <div>
+            <h3>InmunoMedi</h3>
+            <p>Tu salud inmunológica siempre contigo</p>
+            <img src="/static/images/app-mockup.png" alt="InmunoMedi App">
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Enlaces Rápidos con diseño premium -->
-        <div class="footer-section footer-links" style="display: flex; flex-direction: column;">
-          <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 25px; color: #fff2df; position: relative;">
-            Enlaces Rápidos
-            <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 3px; background: #fff2df; border-radius: 2px;"></span>
-          </h4>
-          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-            <li style="margin-bottom: 0;"><a href="index.html" style="color: white; text-decoration: none; font-size: 1.05rem; display: flex; align-items: center; transition: all 0.3s ease;" onmouseover="this.style.color='#fff2df'; this.style.paddingLeft='8px'" onmouseout="this.style.color='white'; this.style.paddingLeft='0px'"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px; color: #fff2df;"></i> Inicio</a></li>
-            <li style="margin-bottom: 0;"><a href="productos.html" style="color: white; text-decoration: none; font-size: 1.05rem; display: flex; align-items: center; transition: all 0.3s ease;" onmouseover="this.style.color='#fff2df'; this.style.paddingLeft='8px'" onmouseout="this.style.color='white'; this.style.paddingLeft='0px'"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px; color: #fff2df;"></i> Productos</a></li>
-            <li style="margin-bottom: 0;"><a href="nosotros.html" style="color: white; text-decoration: none; font-size: 1.05rem; display: flex; align-items: center; transition: all 0.3s ease;" onmouseover="this.style.color='#fff2df'; this.style.paddingLeft='8px'" onmouseout="this.style.color='white'; this.style.paddingLeft='0px'"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px; color: #fff2df;"></i> Nosotros</a></li>
-            <li style="margin-bottom: 0;"><a href="contacto.html" style="color: white; text-decoration: none; font-size: 1.05rem; display: flex; align-items: center; transition: all 0.3s ease;" onmouseover="this.style.color='#fff2df'; this.style.paddingLeft='8px'" onmouseout="this.style.color='white'; this.style.paddingLeft='0px'"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px; color: #fff2df;"></i> Contacto</a></li>
-            <li style="margin-bottom: 0;"><a href="carrito.html" style="color: white; text-decoration: none; font-size: 1.05rem; display: flex; align-items: center; transition: all 0.3s ease;" onmouseover="this.style.color='#fff2df'; this.style.paddingLeft='8px'" onmouseout="this.style.color='white'; this.style.paddingLeft='0px'"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px; color: #fff2df;"></i> Carrito</a></li>
-            <li style="margin-bottom: 0;"><a href="terminos.html" style="color: white; text-decoration: none; font-size: 1.05rem; display: flex; align-items: center; transition: all 0.3s ease;" onmouseover="this.style.color='#fff2df'; this.style.paddingLeft='8px'" onmouseout="this.style.color='white'; this.style.paddingLeft='0px'"><i class="fas fa-chevron-right" style="font-size: 0.7rem; margin-right: 10px; color: #fff2df;"></i> Términos y Condiciones</a></li>
+    <section>
+      <div>
+        <h2>Beneficios de nuestros productos</h2>
+        <p>Descubre cómo nuestros productos premium pueden fortalecer tu sistema inmunológico y mejorar tu calidad de vida</p>
+        <div>
+          <div>
+            <div>
+              <img src="/static/images/icon-immune.png" alt="Protección inmunológica">
+            </div>
+            <h3>Protección inmunológica</h3>
+            <p>Potencia las defensas naturales de tu cuerpo contra infecciones y enfermedades con nuestros suplementos de Factor de Transferencia.</p>
+          </div>
+          <div>
+            <div>
+              <img src="/static/images/icon-heart.png" alt="Salud cardiovascular">
+            </div>
+            <h3>Salud cardiovascular</h3>
+            <p>Apoya el funcionamiento óptimo del corazón y mantiene tus arterias saludables con nuestros suplementos especializados.</p>
+          </div>
+          <div>
+            <div>
+              <img src="/static/images/icon-gut.png" alt="Equilibrio intestinal">
+            </div>
+            <h3>Equilibrio intestinal</h3>
+            <p>Favorece la salud de tu microbiota para una mejor digestión y absorción de nutrientes con nuestros probióticos avanzados.</p>
+          </div>
+          <div>
+            <div>
+              <img src="/static/images/icon-antiaging.png" alt="Antienvejecimiento">
+            </div>
+            <h3>Antienvejecimiento</h3>
+            <p>Productos avanzados que ayudan a retrasar los signos del envejecimiento celular y mantener tu vitalidad a cualquier edad.</p>
+          </div>
+          <div>
+            <div>
+              <img src="/static/images/icon-cognitive.png" alt="Función cognitiva">
+            </div>
+            <h3>Función cognitiva</h3>
+            <p>Apoyo para mantener una mente clara y memoria aguda en todas las etapas de la vida con nuestros suplementos neurocognitivos.</p>
+          </div>
+          <div>
+            <div>
+              <img src="/static/images/icon-energy.png" alt="Energía natural">
+            </div>
+            <h3>Energía natural</h3>
+            <p>Incrementa tus niveles de energía sin estimulantes artificiales ni efectos secundarios, con nuestras fórmulas naturales.</p>
+          </div>
+        </div>
+        <a href="/products">Ver todos los productos</a>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <h2>Tu Carrito</h2>
+        <div>
+          <div>
+            <p>Tu carrito está vacío</p>
+            <p>Añade productos para fortalecer tu sistema inmunológico</p>
+            <a href="/products">Explorar productos</a>
+          </div>
+          <div>
+            <div>
+              <div>
+                <img src="/static/images/product-placeholder.png" alt="Producto">
+              </div>
+              <div>
+                <h3>Nombre del producto</h3>
+                <p>Variante: Estándar</p>
+                <div>
+                  <button>-</button>
+                  <span>1</span>
+                  <button>+</button>
+                </div>
+                <p>$99.99</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>Total: $0.00</p>
+          <div>
+            <a href="/cart">Ver Carrito</a>
+            <a href="/checkout">Checkout</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div>
+        <div>
+          <img src="/static/images/logo-footer.png" alt="InmunoMedi Logo">
+          <h3>InmunoMedi</h3>
+          <p>Fortalece tu sistema inmune con soluciones innovadoras y naturales. Somos distribuidores de Factor de Transferencia y suplementos premium.</p>
+          <div>
+            <h4>Síguenos</h4>
+            <div>
+              <a href="https://facebook.com" target="_blank">
+                <img src="/static/images/facebook-icon.png" alt="Facebook">
+              </a>
+              <a href="https://instagram.com" target="_blank">
+                <img src="/static/images/instagram-icon.png" alt="Instagram">
+              </a>
+              <a href="https://twitter.com" target="_blank">
+                <img src="/static/images/twitter-icon.png" alt="Twitter">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>Enlaces Rápidos</h4>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/products">Productos</a></li>
+            <li><a href="/about">Nosotros</a></li>
+            <li><a href="/contact">Contacto</a></li>
+            <li><a href="/cart">Carrito</a></li>
+            <li><a href="/terms">Términos y Condiciones</a></li>
           </ul>
         </div>
-
-        <!-- Contacto con diseño premium -->
-        <div class="footer-section footer-contact" style="display: flex; flex-direction: column;">
-          <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 25px; color: #fff2df; position: relative;">
-            Contáctanos
-            <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 3px; background: #fff2df; border-radius: 2px;"></span>
-          </h4>
-          <div style="display: flex; flex-direction: column; gap: 20px;">
-            <div class="contact-item" style="display: flex; align-items: flex-start; gap: 15px;">
-              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,242,223,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <i class="fas fa-map-marker-alt" style="color: #fff2df;"></i>
-              </div>
+        <div>
+          <h4>Contáctanos</h4>
+          <div>
+            <div>
+              <img src="/static/images/icon-address.png" alt="Dirección">
               <div>
-                <h5 style="font-size: 1.1rem; margin-bottom: 5px; font-weight: 600; color: white;">Dirección</h5>
-                <p style="margin: 0; line-height: 1.5; opacity: 0.9;">Av. Salud 456, Col. Juárez, Ciudad de México</p>
+                <h5>Dirección</h5>
+                <p>Av. Salud 456, Col. Juárez, Ciudad de México</p>
               </div>
             </div>
-            <div class="contact-item" style="display: flex; align-items: flex-start; gap: 15px;">
-              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,242,223,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <i class="fas fa-phone" style="color: #fff2df;"></i>
-              </div>
+            <div>
+              <img src="/static/images/icon-phone.png" alt="Teléfono">
               <div>
-                <h5 style="font-size: 1.1rem; margin-bottom: 5px; font-weight: 600; color: white;">Teléfono</h5>
-                <p style="margin: 0 0 5px; line-height: 1.5;"><a href="tel:+525560298059" style="color: white; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#fff2df'" onmouseout="this.style.color='white'">+52 55 6029 8059</a></p>
-                <p style="margin: 0; line-height: 1.5;"><a href="tel:+525559481639" style="color: white; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#fff2df'" onmouseout="this.style.color='white'">+52 55 5948 1639</a></p>
+                <h5>Teléfono</h5>
+                <p>+52 55 6029 8059</p>
+                <p>+52 55 5948 1639</p>
               </div>
             </div>
-            <div class="contact-item" style="display: flex; align-items: flex-start; gap: 15px;">
-              <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,242,223,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <i class="fas fa-envelope" style="color: #fff2df;"></i>
-              </div>
+            <div>
+              <img src="/static/images/icon-email.png" alt="Email">
               <div>
-                <h5 style="font-size: 1.1rem; margin-bottom: 5px; font-weight: 600; color: white;">Email</h5>
-                <p style="margin: 0; line-height: 1.5;"><a href="mailto:contacto@inmunomedi.com" style="color: white; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#fff2df'" onmouseout="this.style.color='white'">contacto@inmunomedi.com</a></p>
+                <h5>Email</h5>
+                <p>contacto@inmunomedi.com</p>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Mapa con diseño premium -->
-        <div class="footer-section footer-map-container">
-          <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 25px; color: #fff2df; position: relative;">
-            Encuéntranos
-            <span style="position: absolute; bottom: -10px; left: 0; width: 50px; height: 3px; background: #fff2df; border-radius: 2px;"></span>
-          </h4>
-          <div class="footer-map" style="height: 220px; overflow: hidden; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); position: relative; z-index: 2;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661686124632!2d-99.16979708469955!3d19.424774546029434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35104a0c1d%3A0x8591958e8d4f39d6!2sCol.%20Ju%C3%A1rez%2C%20Cuauht%C3%A9moc%2C%2006600%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1649687047732!5m2!1ses-419!2smx" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <h4>Encuéntranos</h4>
+          <div>
+            <iframe src="https://www.google.com/maps/embed?pb=" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
-      
-      <!-- Línea separadora premium -->
-      <div style="height: 1px; background: linear-gradient(to right, transparent, rgba(255,242,223,0.3), transparent); margin: 40px 0;"></div>
-      
-      <!-- Footer Bottom mejorado -->
-      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding-top: 10px;">
-        <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.95rem;"> 2025 <span style="color: #fff2df; font-weight: 600;">InmunoMedi</span>. Todos los derechos reservados.</p>
-        <div class="footer-legal" style="display: flex; gap: 20px;">
-          <a href="terminos.html#politicas" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#fff2df'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Política de Privacidad</a>
-          <a href="terminos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;" onmouseover="this.style.color='#fff2df'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Términos y Condiciones</a>
+      <div>
+        <p>© 2025 InmunoMedi. Todos los derechos reservados.</p>
+        <div>
+          <a href="/privacy">Política de Privacidad</a>
+          <a href="/terms">Términos y Condiciones</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- WhatsApp Button -->
-  <div class="whatsapp-btn">
-    <a href="https://wa.me/55560298059" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-  </div>
-
-  <!-- Back to Top -->
-  <a href="#inicio" class="back-to-top" aria-label="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
-  <!-- Notificaciones -->
-  <div id="notification-container"></div>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <script src="script.js"></script>
-  
-  <!-- Script para los botones del carrusel y el fondo dinámico -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Configurar el cambio de fondo según la diapositiva activa
-      const carousel = document.getElementById('carouselMain');
-      const backgroundSlider = document.getElementById('background-slider');
-      const slideInfo = document.getElementById('slide-info');
-      
-      // Arrays con la información de cada producto y textos informativos
-      const productInfo = [
-        {
-          name: "Factor de Transferencia",
-          description: "Fortalece tu sistema inmune con nuestra fórmula avanzada.",
-          price: "$750.00 MXN",
-          image: "recursos/carrusel/CelestinFT__2024_V4.webp",
-          infoTitle: "1- Innovación y Fundamento Científico",
-          infoContent: "Respaldados por la ciencia y la innovación, como distribuidores de Factor de Transferencia, nos dedicamos a ofrecer soluciones basadas en avances comprobados. Nuestro enfoque se centra en promover tu bienestar a través de productos diseñados con rigor científico."
-        },
-        {
-          name: "Daily Pro 50",
-          description: "Equilibrio digestivo e inmunidad en cada cápsula.",
-          price: "$650.00 MXN",
-          image: "recursos/carrusel/DailyPRO_50_2024_V4.webp",
-          infoTitle: "2- Equilibrio Saludable en tu Microbiota",
-          infoContent: "Nuestra misión es apoyarte en mantener un equilibrio óptimo en tu microbiota intestinal. Este balance es esencial para una digestión saludable y un cuerpo en armonía, aprovechando los beneficios que la naturaleza y la investigación pueden brindar."
-        },
-        {
-          name: "ArtikOM3",
-          description: "Apoyo cardiovascular con omega-3 de krill antártico.",
-          price: "$825.00 MXN",
-          image: "recursos/carrusel/ArtikOM3__2024_V4.webp",
-          infoTitle: "3- Fortalecimiento Natural del Sistema Inmunológico",
-          infoContent: "Buscamos fortalecer tu sistema inmunológico de manera natural y efectiva. Con el Factor de Transferencia, te ofrecemos una herramienta que respalda tus defensas, ayudándote a enfrentar los desafíos diarios con mayor resistencia."
-        },
-        {
-          name: "Inm Box",
-          description: "Triple apoyo integral para tu salud inmunológica.",
-          price: "$1,499.00 MXN",
-          image: "recursos/carrusel/InmBox__2024_V4.webp",
-          infoTitle: "4- Compromiso con tu Salud",
-          infoContent: "Combinamos ciencia y naturaleza para proporcionarte una solución integral. Nuestro objetivo es que disfrutes de una vida más saludable, con un enfoque preventivo y sostenible que potencie tu bienestar a largo plazo."
-        }
-      ];
-      
-      if (carousel) {
-        carousel.addEventListener('slide.bs.carousel', function(e) {
-          const slideIndex = e.to; // Índice de la nueva diapositiva
-          
-          // Actualizar el fondo con un pequeño retraso para una transición más suave
-          setTimeout(() => {
-            backgroundSlider.style.backgroundImage = `url('${productInfo[slideIndex].image}')`;
-          }, 300);
-          
-          // Actualizar el título y contenido informativo en el panel lateral
-          document.querySelector('#info-panel h3').textContent = productInfo[slideIndex].infoTitle;
-          document.querySelector('#info-content p').textContent = productInfo[slideIndex].infoContent;
-          
-          // Actualizar la información del producto en la tarjeta lateral
-          slideInfo.innerHTML = `
-            <h4 style="color: #2E5A87; font-size: 1.3rem; margin-bottom: 10px;">${productInfo[slideIndex].name}</h4>
-            <p style="font-size: 1rem; margin-bottom: 8px;">${productInfo[slideIndex].description}</p>
-            <p class="price" style="font-size: 1.3rem; font-weight: 600; color: #4CAF50; margin-bottom: 15px;">${productInfo[slideIndex].price}</p>
-            <div class="cta-buttons" style="display: flex; gap: 15px;">
-              <a href="productos.html?producto=${productInfo[slideIndex].name.toLowerCase().replace(/ /g, '-')}" class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem; display: inline-block;">Ver más</a>
-              <button class="btn-outline add-to-cart" style="padding: 8px 15px; font-size: 0.9rem; background: rgba(46,90,135,0.1); border: 1px solid #2E5A87; color: #2E5A87; border-radius: 5px; cursor: pointer;"><i class="fas fa-shopping-cart"></i> Añadir</button>
-            </div>
-          `;
-        });
-      }
-      
-      // Configurar los botones de añadir al carrito en el carrusel
-      const addToCartButtons = document.querySelectorAll('.carousel-caption .add-to-cart');
-      
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Obtener información del producto desde el carrusel
-          const slide = this.closest('.carousel-item');
-          const productName = slide.querySelector('h2').textContent;
-          const priceText = slide.querySelector('.price').textContent;
-          const price = parseInt(priceText.replace(/[^0-9]/g, ''));
-          
-          // Añadir al carrito (localStorage)
-          let cart = JSON.parse(localStorage.getItem('cart')) || [];
-          const existingProduct = cart.find(item => item.product === productName);
-          
-          if (existingProduct) {
-            existingProduct.quantity += 1;
-          } else {
-            cart.push({ product: productName, price: price, quantity: 1 });
-          }
-          
-          localStorage.setItem('cart', JSON.stringify(cart));
-          
-          // Actualizar contador del carrito
-          const cartCountElement = document.querySelector('.cart-count');
-          if (cartCountElement) {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCountElement.textContent = totalItems;
-            cartCountElement.style.display = totalItems > 0 ? 'inline-block' : 'none';
-          }
-          
-          // Efecto visual de confirmación
-          button.classList.add('added');
-          button.innerHTML = '<i class="fas fa-check"></i> Añadido';
-          
-          // Restaurar botón después de 2 segundos
-          setTimeout(() => {
-            button.classList.remove('added');
-            button.innerHTML = '<i class="fas fa-shopping-cart"></i> Añadir';
-          }, 2000);
-          
-          // Mostrar notificación
-          showNotification(productName);
-        });
-      });
-      
-      // Función para mostrar notificación
-      function showNotification(productName) {
-        // Verificar si ya existe el contenedor de notificaciones
-        let notificationContainer = document.getElementById('notification-container');
-        
-        if (!notificationContainer) {
-          notificationContainer = document.createElement('div');
-          notificationContainer.id = 'notification-container';
-          notificationContainer.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999;';
-          document.body.appendChild(notificationContainer);
-        }
-        
-        // Crear la notificación
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.style.cssText = 'background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px; margin-bottom: 10px; display: flex; align-items: center; box-shadow: 0 3px 10px rgba(0,0,0,0.2); animation: slideInRight 0.3s forwards;';
-        
-        notification.innerHTML = `
-          <i class="fas fa-check-circle" style="margin-right: 10px; font-size: 1.2rem;"></i>
-          <div>
-            <div style="font-weight: bold;">Producto añadido</div>
-            <div>${productName} ha sido añadido al carrito</div>
-          </div>
-        `;
-        
-        notificationContainer.appendChild(notification);
-        
-        // Eliminar la notificación después de 3 segundos
-        setTimeout(() => {
-          notification.style.animation = 'fadeOut 0.3s forwards';
-          setTimeout(() => notification.remove(), 300);
-        }, 3000);
-      }
-      
-      // Añadir estilos para animaciones
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes slideInRight {
-          from { transform: translateX(100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        
-        @keyframes fadeOut {
-          from { opacity: 1; }
-          to { opacity: 0; }
-        }
-        
-        .add-to-cart.added {
-          background-color: #4CAF50 !important;
-          border-color: #4CAF50 !important;
-          transition: all 0.3s ease;
-        }
-      `;
-      document.head.appendChild(style);
-    });
-  </script>
 </body>
 </html>

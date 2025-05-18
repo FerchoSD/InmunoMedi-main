@@ -1,20 +1,10 @@
 ---
 deployment:
   tasks:
-    # Define el directorio de destino en tu cuenta de cPanel
-    - export DEPLOYPATH=/home2/inmunovi/factor-de-transferencia/
-    # Copia los archivos principales del sitio web
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp productos.html $DEPLOYPATH
-    - /bin/cp carrito.html $DEPLOYPATH
-    - /bin/cp contacto.html $DEPLOYPATH
-    - /bin/cp nosotros.html $DEPLOYPATH
-    - /bin/cp terminos.html $DEPLOYPATH
-    - /bin/cp política\ de\ privacidad.html $DEPLOYPATH
-    # Copia los archivos de estilos y scripts
-    - /bin/cp styles.css $DEPLOYPATH
-    - /bin/cp inmunomedi-premium.css $DEPLOYPATH
-    - /bin/cp script.js $DEPLOYPATH
-    - /bin/cp inmunomedi-particles.js $DEPLOYPATH
-    # Copia el directorio de recursos (imágenes, etc.)
+    - export DEPLOYPATH=/home/tu_usuario/public_html/
+    - /bin/cp *.html $DEPLOYPATH
     - /bin/cp -R recursos $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R template $DEPLOYPATH
+    - /bin/cp submit-form.php $DEPLOYPATH
