@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carrito de Compras de Inmunomedi - Completa tu pedido de Factor de Transferencia y suplementos para fortalecer tu sistema inmune">
+  <meta name="keywords" content="carrito, compras, Inmunomedi, Factor de Transferencia, sistema inmune, suplementos, checkout">
+  <title>Carrito de Compras - InmunoMedi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="icon" href="recursos/simbolo/SimbFCT.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="recursos/simbolo/SimbFCT.png" alt="Cargando..." class="preload-logo" width="100" height="100">
+      <p class="preload-text">Cargando...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <?php include 'template/header.html'; ?>
+
+  <main>
+    <!-- Carrito Hero -->
+    <section class="carrito-hero">
+      <div class="container">
+        <div class="carrito-hero-content animate-on-scroll">
+          <h1>Tu Carrito de Compras</h1>
+          <p>Completa tu pedido con los mejores productos para tu salud</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrito -->
+    <section class="carrito">
+      <div class="container">
+        <div class="carrito-proceso">
+          <div class="proceso-step active">
+            <div class="proceso-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="proceso-texto">Carrito</div>
+          </div>
+          <div class="proceso-line"></div>
+          <div class="proceso-step">
+            <div class="proceso-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="proceso-texto">Datos</div>
+          </div>
+          <div class="proceso-line"></div>
+          <div class="proceso-step">
+            <div class="proceso-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="proceso-texto">Pago</div>
+          </div>
+          <div class="proceso-line"></div>
+          <div class="proceso-step">
+            <div class="proceso-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="proceso-texto">Confirmación</div>
+          </div>
+        </div>
+        
+        <div class="carrito-container">
+          <div class="carrito-items-container">
+            <h2>Productos en tu carrito</h2>
+            <div class="carrito-items animate-on-scroll">
+              <!-- Los items se agregan dinámicamente con JavaScript -->
+            </div>
+          </div>
+          
+          <div class="carrito-sidebar animate-on-scroll">
+            <div class="carrito-resumen">
+              <h3>Resumen del pedido</h3>
+              <div class="resumen-item">
+                <span>Subtotal:</span>
+                <span class="carrito-subtotal">$0.00</span>
+              </div>
+              <div class="resumen-item">
+                <span>Envío:</span>
+                <span class="carrito-envio">Calculado en el siguiente paso</span>
+              </div>
+              <div class="resumen-item total">
+                <span>Total:</span>
+                <span class="carrito-total-precio">$0.00</span>
+              </div>
+              
+              <div class="carrito-cupon">
+                <input type="text" placeholder="Código de cupón" id="cupon-codigo">
+                <button class="btn-aplicar-cupon">Aplicar</button>
+              </div>
+              
+              <div class="carrito-acciones">
+                <button class="btn-primary continuar-compra">Continuar Compra</button>
+                <button class="btn-secondary seguir-comprando" onclick="window.location.href='index.html#productos'">Seguir Comprando</button>
+                <button class="btn-outline vaciar-carrito" onclick="vaciarCarrito()">Vaciar Carrito</button>
+              </div>
+            </div>
+            
+            <div class="carrito-metodos-pago">
+              <h4>Métodos de pago aceptados</h4>
+              <div class="metodos-pago-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fas fa-money-bill-wave"></i>
+                <i class="fas fa-university"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrito Checkout -->
+    <section class="carrito-checkout animate-on-scroll">
+      <div class="container">
+        <h2>Finalizar Compra</h2>
+        <form id="checkout-form" action="submit-form.php" method="POST">
+          <input type="hidden" name="form_type" value="checkout">
+          
+          <div class="checkout-grid">
+            <div class="checkout-info">
+              <h3>Información personal</h3>
+              <div class="form-group">
+                <label for="nombre">Nombre completo*</label>
+                <input type="text" id="nombre" name="nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono*</label>
+                <input type="tel" id="telefono" name="telefono" required>
+              </div>
+              
+              <h3>Dirección de envío</h3>
+              <div class="form-group">
+                <label for="calle">Calle y número*</label>
+                <input type="text" id="calle" name="calle" required>
+              </div>
+              <div class="form-group doble">
+                <div>
+                  <label for="colonia">Colonia*</label>
+                  <input type="text" id="colonia" name="colonia" required>
+                </div>
+                <div>
+                  <label for="cp">Código Postal*</label>
+                  <input type="text" id="cp" name="cp" required>
+                </div>
+              </div>
+              <div class="form-group doble">
+                <div>
+                  <label for="ciudad">Ciudad*</label>
+                  <input type="text" id="ciudad" name="ciudad" required>
+                </div>
+                <div>
+                  <label for="estado">Estado*</label>
+                  <select id="estado" name="estado" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="CDMX">Ciudad de México</option>
+                    <option value="Aguascalientes">Aguascalientes</option>
+                    <option value="Baja California">Baja California</option>
+                    <option value="Baja California Sur">Baja California Sur</option>
+                    <option value="Campeche">Campeche</option>
+                    <option value="Chiapas">Chiapas</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="Coahuila">Coahuila</option>
+                    <option value="Colima">Colima</option>
+                    <option value="Durango">Durango</option>
+                    <option value="Estado de México">Estado de México</option>
+                    <option value="Guanajuato">Guanajuato</option>
+                    <option value="Guerrero">Guerrero</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Jalisco">Jalisco</option>
+                    <option value="Michoacán">Michoacán</option>
+                    <option value="Morelos">Morelos</option>
+                    <option value="Nayarit">Nayarit</option>
+                    <option value="Nuevo León">Nuevo León</option>
+                    <option value="Oaxaca">Oaxaca</option>
+                    <option value="Puebla">Puebla</option>
+                    <option value="Querétaro">Querétaro</option>
+                    <option value="Quintana Roo">Quintana Roo</option>
+                    <option value="San Luis Potosí">San Luis Potosí</option>
+                    <option value="Sinaloa">Sinaloa</option>
+                    <option value="Sonora">Sonora</option>
+                    <option value="Tabasco">Tabasco</option>
+                    <option value="Tamaulipas">Tamaulipas</option>
+                    <option value="Tlaxcala">Tlaxcala</option>
+                    <option value="Veracruz">Veracruz</option>
+                    <option value="Yucatán">Yucatán</option>
+                    <option value="Zacatecas">Zacatecas</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="referencias">Referencias (opcional)</label>
+                <textarea id="referencias" name="referencias" placeholder="Color de casa, entre calles, etc."></textarea>
+              </div>
+            </div>
+            
+            <div class="checkout-resumen">
+              <h3>Método de pago</h3>
+              <div class="metodos-pago">
+                <div class="metodo-pago">
+                  <input type="radio" id="metodo-transferencia" name="metodo_pago" value="transferencia" checked>
+                  <label for="metodo-transferencia">
+                    <i class="fas fa-university"></i>
+                    <span>Transferencia bancaria</span>
+                  </label>
+                </div>
+                <div class="metodo-pago">
+                  <input type="radio" id="metodo-deposito" name="metodo_pago" value="deposito">
+                  <label for="metodo-deposito">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Depósito en efectivo</span>
+                  </label>
+                </div>
+                <div class="metodo-pago">
+                  <input type="radio" id="metodo-tarjeta" name="metodo_pago" value="tarjeta">
+                  <label for="metodo-tarjeta">
+                    <i class="far fa-credit-card"></i>
+                    <span>Pago con tarjeta</span>
+                  </label>
+                </div>
+                <div class="metodo-pago">
+                  <input type="radio" id="metodo-efectivo" name="metodo_pago" value="efectivo">
+                  <label for="metodo-efectivo">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>Efectivo al recibir (CDMX)</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div class="carrito-total">
+                <h3>Total del pedido: <span>$0.00</span></h3>
+              </div>
+              
+              <div class="form-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los <a href="terminos.html">Términos y Condiciones</a> y la política de privacidad.</label>
+              </div>
+              
+              <button type="submit" class="btn-primary btn-finalizar">
+                <i class="fab fa-whatsapp"></i> Finalizar compra por WhatsApp
+              </button>
+              
+              <p class="seguridad-info">
+                <i class="fas fa-lock"></i> Tus datos están protegidos y nunca serán compartidos con terceros.
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Productos Recomendados -->
+    <section class="productos-recomendados animate-on-scroll">
+      <div class="container">
+        <h2>También te puede interesar</h2>
+        <div class="recomendados-carousel">
+          <div class="producto-recomendado">
+            <img src="recursos/FCT/CelestinFT__2024_V2.webp" alt="Factor de Transferencia" width="150" height="150">
+            <h4>Factor de Transferencia</h4>
+            <p>$350 c/u ($300 mayoreo)</p>
+            <button class="btn-primary add-to-cart" data-product="Factor de Transferencia" data-price="350">Añadir al Carrito</button>
+          </div>
+          <div class="producto-recomendado">
+            <img src="recursos/DailyPro 50/DailyPRO_50_2024_V2.webp" alt="Daily Pro" width="150" height="150">
+            <h4>Daily Pro</h4>
+            <p>$600 c/u</p>
+            <button class="btn-primary add-to-cart" data-product="Daily Pro" data-price="600">Añadir al Carrito</button>
+          </div>
+          <div class="producto-recomendado">
+            <img src="recursos/InmBox/InmBox__2025_V2-01.webp" alt="Inm Box" width="150" height="150">
+            <h4>Inm Box</h4>
+            <p>$1300 c/u ($1200 mayoreo)</p>
+            <button class="btn-primary add-to-cart" data-product="Inm Box" data-price="1300">Añadir al Carrito</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <?php include 'template/footer.html'; ?>
+
+  <!-- WhatsApp Button -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/55560298059" target="_blank" aria-label="Contactar por WhatsApp">
+      <i class="fab fa-whatsapp"></i> Contáctanos
+    </a>
+  </div>
+
+  <!-- Back to Top -->
+  <a href="#inicio" class="back-to-top" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Notificaciones -->
+  <div id="notification-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

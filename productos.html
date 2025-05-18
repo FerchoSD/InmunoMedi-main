@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalles del producto - Inmunomedi, distribuidor oficial de Factor de Transferencia y suplementos para fortalecer el sistema inmune.">
+  <meta name="keywords" content="producto, detalles, Factor de Transferencia, sistema inmune, suplementos, salud">
+  <title>Detalle de Producto - InmunoMedi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="template/shared.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="icon" href="recursos/simbolo/SimbFCT.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="recursos/simbolo/SimbFCT.png" alt="Cargando..." class="preload-logo" width="100" height="100">
+      <p class="preload-text">Cargando...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <?php include 'template/header.html'; ?>
+
+  <main>
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Inicio</a>
+          <i class="fas fa-chevron-right"></i>
+          <a href="productos.html">Productos</a>
+          <i class="fas fa-chevron-right"></i>
+          <span id="breadcrumb-producto">Detalle de Producto</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Producto Detalle -->
+    <section class="producto-detalle">
+      <div class="container">
+        <div class="producto-content animate-on-scroll">
+          <div class="producto-imagenes">
+            <div class="producto-img-principal-container">
+              <img id="producto-img" class="producto-img-principal" src="" alt="Producto" width="400" height="350">
+              <div class="producto-etiquetas">
+                <span class="etiqueta-premium">Premium</span>
+                <span class="etiqueta-descuento">-10% Mayoreo</span>
+              </div>
+            </div>
+            <div class="producto-miniaturas" id="producto-miniaturas">
+              <!-- Las miniaturas se generan dinámicamente con JavaScript -->
+            </div>
+            <div class="producto-controles">
+              <button class="producto-control prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+              <button class="producto-control next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+          <div class="producto-info">
+            <h2 id="producto-nombre"></h2>
+            <div class="producto-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span>(4.5/5 - 48 valoraciones)</span>
+            </div>
+            <p id="producto-descripcion" class="descripcion"></p>
+
+            <div class="producto-beneficios">
+              <h3>Beneficios</h3>
+              <ul id="producto-features" class="producto-features"></ul>
+            </div>
+
+            <div class="producto-detalles">
+              <div class="detalle-item">
+                <span class="detalle-label">Presentación:</span>
+                <span id="producto-presentacion" class="detalle-valor"></span>
+              </div>
+              <div class="detalle-item">
+                <span class="detalle-label">Categoría:</span>
+                <span class="detalle-valor">Suplementos Inmunológicos</span>
+              </div>
+              <div class="detalle-item">
+                <span class="detalle-label">Disponibilidad:</span>
+                <span class="detalle-valor disponible"><i class="fas fa-check-circle"></i> En stock</span>
+              </div>
+            </div>
+
+            <div class="producto-compra">
+              <p id="producto-precio" class="precio"></p>
+              <div class="producto-cantidad">
+                <span>Cantidad:</span>
+                <div class="cantidad-control">
+                  <button class="cantidad-btn menos" onclick="cambiarCantidad(-1)">-</button>
+                  <input type="number" id="cantidad" value="1" min="1" max="99">
+                  <button class="cantidad-btn mas" onclick="cambiarCantidad(1)">+</button>
+                </div>
+              </div>
+              <div class="producto-acciones">
+                <button class="btn-primary add-to-cart" id="add-to-cart-btn">
+                  <i class="fas fa-shopping-cart"></i> Añadir al Carrito
+                </button>
+                <button class="btn-secondary comprar-ahora">
+                  <i class="fas fa-bolt"></i> Comprar Ahora
+                </button>
+                <button class="btn-outline wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="producto-compartir">
+              <span>Compartir:</span>
+              <div class="compartir-botones">
+                <a href="#" target="_blank" class="compartir-btn" aria-label="Compartir en Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" target="_blank" class="compartir-btn" aria-label="Compartir en Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank" class="compartir-btn" aria-label="Compartir en WhatsApp">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" target="_blank" class="compartir-btn" aria-label="Compartir por Email">
+                  <i class="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="producto-seguridad">
+              <div class="seguridad-item">
+                <i class="fas fa-truck"></i>
+                <span>Envío a todo México</span>
+              </div>
+              <div class="seguridad-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Pago seguro</span>
+              </div>
+              <div class="seguridad-item">
+                <i class="fas fa-undo-alt"></i>
+                <span>Devolución garantizada</span>
+              </div>
+              <div class="seguridad-item">
+                <i class="fas fa-headset"></i>
+                <span>Soporte 24/7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs de información adicional -->
+    <section class="producto-tabs">
+      <div class="container">
+        <div class="tabs-container animate-on-scroll">
+          <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="descripcion">Descripción</button>
+            <button class="tab-btn" data-tab="ingredientes">Ingredientes</button>
+            <button class="tab-btn" data-tab="uso">Modo de uso</button>
+            <button class="tab-btn" data-tab="opiniones">Opiniones</button>
+            <button class="tab-btn" data-tab="preguntas">Preguntas frecuentes</button>
+          </div>
+
+          <div class="tabs-content">
+            <div class="tab-panel active" id="tab-descripcion">
+              <h3>Descripción detallada</h3>
+              <p id="descripcion-detallada">El Factor de Transferencia es una molécula inmunitaria que ayuda a educar y fortalecer las células de defensa del organismo. Contiene moléculas del calostro bovino que transfieren información inmunitaria al cuerpo humano, ayudando a combatir infecciones y fortalecer el sistema inmune.</p>
+              <p>Nuestro producto está elaborado bajo estrictos controles de calidad para garantizar su pureza y efectividad. Cada cápsula contiene la dosis óptima para obtener los mejores resultados en el fortalecimiento de tu sistema inmunológico.</p>
+
+              <div class="beneficios-expandidos">
+                <div class="beneficio-item">
+                  <div class="beneficio-icono">
+                    <i class="fas fa-shield-virus"></i>
+                  </div>
+                  <div class="beneficio-info">
+                    <h4>Fortalece tu sistema inmune</h4>
+                    <p>Ayuda a tu cuerpo a reconocer y combatir patógenos de manera más eficiente, reduciendo la incidencia de infecciones.</p>
+                  </div>
+                </div>
+                <div class="beneficio-item">
+                  <div class="beneficio-icono">
+                    <i class="fas fa-viruses"></i>
+                  </div>
+                  <div class="beneficio-info">
+                    <h4>Combate infecciones recurrentes</h4>
+                    <p>Especialmente útil para personas que sufren de infecciones frecuentes como gripe, resfriados o infecciones urinarias.</p>
+                  </div>
+                </div>
+                <div class="beneficio-item">
+                  <div class="beneficio-icono">
+                    <i class="fas fa-heartbeat"></i>
+                  </div>
+                  <div class="beneficio-info">
+                    <h4>Acelera la recuperación</h4>
+                    <p>Ayuda al organismo a recuperarse más rápidamente después de periodos de enfermedad o estrés intenso.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-ingredientes">
+              <h3>Ingredientes</h3>
+              <div class="ingredientes-lista">
+                <div class="ingrediente">
+                  <h4>Factor de Transferencia</h4>
+                  <p>Moléculas inmunitarias extraídas del calostro bovino mediante un proceso patentado que garantiza su pureza y efectividad.</p>
+                </div>
+                <div class="ingrediente">
+                  <h4>Extracto de Echinacea</h4>
+                  <p>Conocida por sus propiedades inmunoestimulantes, ayuda a activar el sistema inmunológico.</p>
+                </div>
+                <div class="ingrediente">
+                  <h4>Extracto de Seta Maitake</h4>
+                  <p>Contiene beta-glucanos que ayudan a estimular la actividad de las células NK (Natural Killer) del sistema inmune.</p>
+                </div>
+                <div class="ingrediente">
+                  <h4>Zinc</h4>
+                  <p>Mineral esencial para el funcionamiento óptimo del sistema inmune.</p>
+                </div>
+                <div class="ingrediente">
+                  <h4>Vitamina C</h4>
+                  <p>Potente antioxidante que ayuda a proteger las células del daño oxidativo y fortalece las defensas.</p>
+                </div>
+              </div>
+
+              <div class="informacion-nutricional">
+                <h4>Información Nutricional</h4>
+                <table class="tabla-nutricional">
+                  <thead>
+                    <tr>
+                      <th>Componente</th>
+                      <th>Cantidad por cápsula</th>
+                      <th>% Valor Diario</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Factor de Transferencia</td>
+                      <td>200 mg</td>
+                      <td>*</td>
+                    </tr>
+                    <tr>
+                      <td>Extracto de Echinacea</td>
+                      <td>50 mg</td>
+                      <td>*</td>
+                    </tr>
+                    <tr>
+                      <td>Extracto de Seta Maitake</td>
+                      <td>50 mg</td>
+                      <td>*</td>
+                    </tr>
+                    <tr>
+                      <td>Zinc</td>
+                      <td>7.5 mg</td>
+                      <td>68%</td>
+                    </tr>
+                    <tr>
+                      <td>Vitamina C</td>
+                      <td>60 mg</td>
+                      <td>67%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="tabla-nota">* Valor Diario no establecido</p>
+              </div>
+
+              <div class="alergenos">
+                <h4>Información sobre alérgenos</h4>
+                <p>Este producto contiene derivados lácteos (calostro bovino). No contiene gluten, soya, huevo, frutos secos, mariscos ni colorantes artificiales.</p>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-uso">
+              <h3>Modo de uso y dosificación</h3>
+              <div class="uso-recomendado">
+                <div class="uso-item">
+                  <div class="uso-icono">
+                    <i class="fas fa-pills"></i>
+                  </div>
+                  <div class="uso-info">
+                    <h4>Dosificación estándar</h4>
+                    <p>Tomar 2 cápsulas al día, una por la mañana y otra por la noche, preferentemente con alimentos.</p>
+                  </div>
+                </div>
+                <div class="uso-item">
+                  <div class="uso-icono">
+                    <i class="fas fa-virus-slash"></i>
+                  </div>
+                  <div class="uso-info">
+                    <h4>En periodos de mayor exigencia inmunológica</h4>
+                    <p>Se puede aumentar la dosis a 3 cápsulas al día (mañana, tarde y noche) durante un periodo de 7 a 10 días.</p>
+                  </div>
+                </div>
+                <div class="uso-item">
+                  <div class="uso-icono">
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <div class="uso-info">
+                    <h4>Duración del tratamiento</h4>
+                    <p>Para obtener resultados óptimos, se recomienda un tratamiento continuado de al menos 3 meses.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="precauciones">
+                <h4>Precauciones y contraindicaciones</h4>
+                <ul>
+                  <li>No exceder la dosis recomendada.</li>
+                  <li>Mantener fuera del alcance de los niños.</li>
+                  <li>Conservar en un lugar fresco y seco, protegido de la luz solar directa.</li>
+                  <li>Consultar con un profesional de la salud antes de su uso en caso de embarazo, lactancia o si está bajo tratamiento médico.</li>
+                  <li>No utilizar en caso de alergia a alguno de los componentes.</li>
+                </ul>
+              </div>
+
+              <div class="recomendaciones">
+                <h4>Recomendaciones adicionales</h4>
+                <p>Para potenciar los efectos del Factor de Transferencia, se recomienda:</p>
+                <ul>
+                  <li>Mantener una alimentación equilibrada rica en frutas y verduras.</li>
+                  <li>Asegurar una hidratación adecuada (2 litros de agua al día).</li>
+                  <li>Practicar ejercicio moderado regularmente.</li>
+                  <li>Asegurar un descanso adecuado (7-8 horas de sueño).</li>
+                  <li>Reducir los niveles de estrés mediante técnicas de relajación.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-opiniones">
+              <h3>Opiniones de clientes</h3>
+
+              <div class="resumen-opiniones">
+                <div class="rating-promedio">
+                  <div class="rating-numero">4.5</div>
+                  <div class="rating-estrellas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <div class="rating-total">Basado en 48 opiniones</div>
+                </div>
+                
+                <div class="rating-desglose">
+                  <div class="rating-barra">
+                    <span class="rating-label">5 estrellas</span>
+                    <div class="barra-contenedor">
+                      <div class="barra-relleno" style="width: 65%"></div>
+                    </div>
+                    <span class="rating-porcentaje">65%</span>
+                  </div>
+                  <div class="rating-barra">
+                    <span class="rating-label">4 estrellas</span>
+                    <div class="barra-contenedor">
+                      <div class="barra-relleno" style="width: 25%"></div>
+                    </div>
+                    <span class="rating-porcentaje">25%</span>
+                  </div>
+                  <div class="rating-barra">
+                    <span class="rating-label">3 estrellas</span>
+                    <div class="barra-contenedor">
+                      <div class="barra-relleno" style="width: 8%"></div>
+                    </div>
+                    <span class="rating-porcentaje">8%</span>
+                  </div>
+                  <div class="rating-barra">
+                    <span class="rating-label">2 estrellas</span>
+                    <div class="barra-contenedor">
+                      <div class="barra-relleno" style="width: 2%"></div>
+                    </div>
+                    <span class="rating-porcentaje">2%</span>
+                  </div>
+                  <div class="rating-barra">
+                    <span class="rating-label">1 estrella</span>
+                    <div class="barra-contenedor">
+                      <div class="barra-relleno" style="width: 0%"></div>
+                    </div>
+                    <span class="rating-porcentaje">0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="opiniones-lista">
+                <div class="opinion">
+                  <div class="opinion-usuario">
+                    <div class="usuario-avatar">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="usuario-info">
+                      <h4>Laura Ramírez</h4>
+                      <div class="opinion-fecha">10/03/2025</div>
+                    </div>
+                    <div class="opinion-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+                  </div>
+                  <div class="opinion-contenido">
+                    <p>Llevo 3 meses tomando Factor de Transferencia y he notado una gran mejoría en mi sistema inmune. Antes me enfermaba constantemente de gripe, y desde que comencé el tratamiento no he tenido ni un solo episodio. Totalmente recomendable.</p>
+                  </div>
+                </div>
+                
+                <div class="opinion">
+                  <div class="opinion-usuario">
+                    <div class="usuario-avatar">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="usuario-info">
+                      <h4>Carlos Mendoza</h4>
+                      <div class="opinion-fecha">22/02/2025</div>
+                    </div>
+                    <div class="opinion-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                    </div>
+                  </div>
+                  <div class="opinion-contenido">
+                    <p>Excelente producto. He notado mayor resistencia cuando hay cambios de temperatura. El envío fue rápido y el producto llegó en perfectas condiciones. Le doy 4 estrellas porque el precio es un poco elevado, pero la calidad lo vale.</p>
+                  </div>
+                </div>
+                
+                <div class="opinion">
+                  <div class="opinion-usuario">
+                    <div class="usuario-avatar">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="usuario-info">
+                      <h4>María Fernández</h4>
+                      <div class="opinion-fecha">05/01/2025</div>
+                    </div>
+                    <div class="opinion-rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </div>
+                  </div>
+                  <div class="opinion-contenido">
+                    <p>Mi médico me recomendó este producto después de una serie de infecciones recurrentes. Después de dos meses de uso, puedo decir que he experimentado una mejora notable. Mi energía ha aumentado y me siento mucho más resistente a las enfermedades comunes.</p>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-secondary ver-mas-opiniones">Ver más opiniones</button>
+            </div>
+
+            <div class="tab-panel" id="tab-preguntas">
+              <h3>Preguntas frecuentes</h3>
+
+              <div class="preguntas-lista">
+                <div class="pregunta">
+                  <div class="pregunta-header">
+                    <h4>¿Cuánto tiempo debo tomar el Factor de Transferencia para ver resultados?</h4>
+                    <span class="pregunta-toggle"><i class="fas fa-plus"></i></span>
+                  </div>
+                  <div class="pregunta-respuesta">
+                    <p>Los resultados pueden variar según cada persona y su estado de salud inicial. En general, muchos usuarios comienzan a notar mejoras en su sistema inmunológico después de 2-4 semanas de uso consistente. Sin embargo, para obtener beneficios óptimos, se recomienda un tratamiento continuo de al menos 3 meses.</p>
+                  </div>
+                </div>
+                
+                <div class="pregunta">
+                  <div class="pregunta-header">
+                    <h4>¿El Factor de Transferencia tiene efectos secundarios?</h4>
+                    <span class="pregunta-toggle"><i class="fas fa-plus"></i></span>
+                  </div>
+                  <div class="pregunta-respuesta">
+                    <p>El Factor de Transferencia es generalmente bien tolerado por la mayoría de las personas. En raras ocasiones, algunas personas pueden experimentar efectos secundarios leves como malestar estomacal o diarrea al inicio del tratamiento. Estos síntomas suelen desaparecer después de unos días. Si tienes alguna condición médica preexistente o estás tomando medicamentos, te recomendamos consultar con tu médico antes de iniciar el tratamiento.</p>
+                  </div>
+                </div>
+                
+                <div class="pregunta">
+                  <div class="pregunta-header">
+                    <h4>¿Puedo tomar Factor de Transferencia junto con otros medicamentos?</h4>
+                    <span class="pregunta-toggle"><i class="fas fa-plus"></i></span>
+                  </div>
+                  <div class="pregunta-respuesta">
+                    <p>En general, el Factor de Transferencia no presenta interacciones conocidas con medicamentos. Sin embargo, siempre es recomendable consultar con tu médico antes de combinar cualquier suplemento con medicamentos, especialmente si estás bajo tratamiento para enfermedades autoinmunes o si tomas inmunosupresores.</p>
+                  </div>
+                </div>
+                
+                <div class="pregunta">
+                  <div class="pregunta-header">
+                    <h4>¿Es adecuado para niños y personas mayores?</h4>
+                    <span class="pregunta-toggle"><i class="fas fa-plus"></i></span>
+                  </div>
+                  <div class="pregunta-respuesta">
+                    <p>Sí, el Factor de Transferencia puede ser utilizado tanto por niños como por personas mayores, ajustando la dosis según la edad y el peso. Para niños menores de 12 años, se recomienda consultar previamente con un pediatra. En personas mayores, puede ser especialmente beneficioso ya que el sistema inmunológico tiende a debilitarse con la edad.</p>
+                  </div>
+                </div>
+                
+                <div class="pregunta">
+                  <div class="pregunta-header">
+                    <h4>¿Debo tomarlo todo el año o solo en temporadas específicas?</h4>
+                    <span class="pregunta-toggle"><i class="fas fa-plus"></i></span>
+                  </div>
+                  <div class="pregunta-respuesta">
+                    <p>Esto depende de tus necesidades específicas. Para personas con sistema inmunológico debilitado o con infecciones recurrentes, se recomienda un uso continuo durante al menos 3-6 meses. Otras personas optan por tomarlo durante las temporadas de mayor riesgo (invierno, cambios estacionales) o antes de periodos de estrés elevado. Para un mantenimiento general, muchos usuarios siguen un régimen de 3 meses de tratamiento seguido de 1 mes de descanso.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hacer-pregunta">
+                <h4>¿No encuentras respuesta a tu pregunta?</h4>
+                <button class="btn-secondary nueva-pregunta">Hacer una pregunta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos Relacionados -->
+    <section class="productos-relacionados">
+      <div class="container">
+        <h2>Productos Recomendados</h2>
+        <div class="recomendados-grid">
+          <div class="producto-recomendado">
+            <div class="recomendado-etiqueta">Bestseller</div>
+            <img src="recursos/DailyPro 50/DailyPRO_50_2024_V2.webp" alt="Daily Pro" width="150" height="150">
+            <h4>Daily Pro</h4>
+            <p class="recomendado-descripcion">Probiótico multiespecie para salud intestinal e inmunidad.</p>
+            <p class="recomendado-precio">$600 c/u</p>
+            <div class="recomendado-acciones">
+              <a href="producto.html?producto=daily-pro" class="btn-secondary">Ver Detalles</a>
+              <button class="btn-primary add-to-cart" data-product="Daily Pro" data-price="600">Añadir</button>
+            </div>
+          </div>
+
+          <div class="producto-recomendado">
+            <div class="recomendado-etiqueta">Complementario</div>
+            <img src="recursos/DK Fort/DKFort5__2024_V2.webp" alt="DK Fort" width="150" height="150">
+            <h4>DK Fort</h4>
+            <p class="recomendado-descripcion">Vitaminas D3 y K2 para huesos e inmunidad.</p>
+            <p class="recomendado-precio">$800 c/u ($700 mayoreo)</p>
+            <div class="recomendado-acciones">
+              <a href="producto.html?producto=dk-fort" class="btn-secondary">Ver Detalles</a>
+              <button class="btn-primary add-to-cart" data-product="DK Fort" data-price="800">Añadir</button>
+            </div>
+          </div>
+
+          <div class="producto-recomendado">
+            <div class="recomendado-etiqueta">Pack Ahorro</div>
+            <img src="recursos/InmBox/InmBox__2025_V2-01.webp" alt="Inm Box" width="150" height="150">
+            <h4>Inm Box</h4>
+            <p class="recomendado-descripcion">Pack completo con Factor de Transferencia, Daily Pro y DK Fort.</p>
+            <p class="recomendado-precio">$1300 c/u ($1200 mayoreo)</p>
+            <div class="recomendado-acciones">
+              <a href="producto.html?producto=inm-box" class="btn-secondary">Ver Detalles</a>
+              <button class="btn-primary add-to-cart" data-product="Inm Box" data-price="1300">Añadir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mini Carrito -->
+  <div class="mini-cart">
+    <div class="mini-cart-header">
+      <h3>Carrito de Compras</h3>
+      <button class="close-mini-cart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mini-cart-items">
+      <!-- Los items se agregan dinámicamente con JavaScript -->
+    </div>
+    <div class="mini-cart-footer">
+      <div class="mini-cart-total">
+        <p>Total: <span>$0.00</span></p>
+      </div>
+      <a href="carrito.html" class="btn-primary">Ver Carrito</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <?php include 'template/footer.html'; ?>
+
+  <!-- WhatsApp Button -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/55560298059" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Back to Top -->
+  <a href="#inicio" class="back-to-top" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Notificaciones -->
+  <div id="notification-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="script.js" defer></script>
+
+  <!-- Scripts específicos para esta página -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tabs de información adicional
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remover clase active de todos los botones y paneles
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanels.forEach(p => p.classList.remove('active'));
+
+          // Añadir clase active al botón clickeado y al panel correspondiente
+          btn.classList.add('active');
+          const tabId = 'tab-' + btn.dataset.tab;
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+
+      // Preguntas frecuentes (Acordeón)
+      const preguntaHeaders = document.querySelectorAll('.pregunta-header');
+
+      preguntaHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const pregunta = header.parentElement;
+          const respuesta = header.nextElementSibling;
+          const toggle = header.querySelector('.pregunta-toggle i');
+
+          // Comprobar si la pregunta está activa
+          const isActive = pregunta.classList.contains('active');
+
+          // Cerrar todas las preguntas activas
+          document.querySelectorAll('.pregunta').forEach(p => {
+            p.classList.remove('active');
+            p.querySelector('.pregunta-respuesta').style.maxHeight = "0";
+            p.querySelector('.pregunta-toggle i').classList.remove('fa-minus');
+            p.querySelector('.pregunta-toggle i').classList.add('fa-plus');
+          });
+
+          // Si la pregunta no estaba activa, abrirla
+          if (!isActive) {
+            pregunta.classList.add('active');
+            respuesta.style.maxHeight = respuesta.scrollHeight + "px";
+            toggle.classList.remove('fa-plus');
+            toggle.classList.add('fa-minus');
+          }
+        });
+      });
+
+      // Función para cambiar la imagen principal
+      window.cambiarImagen = function(imgSrc) {
+        const imgPrincipal = document.getElementById('producto-img');
+        if (imgPrincipal && imgSrc) {
+          imgPrincipal.src = imgSrc;
+
+          // Actualizar miniaturas activas
+          document.querySelectorAll('.miniatura').forEach(mini => {
+            mini.classList.remove('active');
+            if (mini.getAttribute('data-img') === imgSrc) {
+              mini.classList.add('active');
+            }
+          });
+        }
+      };
+
+      // Función para cambiar la cantidad
+      window.cambiarCantidad = function(valor) {
+        const cantidadInput = document.getElementById('cantidad');
+        let cantidad = parseInt(cantidadInput.value) || 1;
+        cantidad += valor;
+
+        // Asegurar que la cantidad no sea menor que 1
+        if (cantidad < 1) cantidad = 1;
+
+        cantidadInput.value = cantidad;
+      };
+
+      // Obtener parámetros de URL para cargar el producto correcto
+      const urlParams = new URLSearchParams(window.location.search);
+      const productoId = urlParams.get('producto');
+
+      if (productoId) {
+        // Actualizar breadcrumb
+        document.getElementById('breadcrumb-producto').textContent = productoId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+        // Simular carga de datos del producto (en una app real, esto vendría de una API o base de datos)
+        const productosData = {
+          "factor-de-transferencia": {
+            nombre: "Factor de Transferencia",
+            descripcion: "El Factor de Transferencia es una molécula inmunitaria que ayuda a educar y fortalecer las células de defensa del organismo. Contiene moléculas del calostro bovino que transfieren información inmunitaria al cuerpo humano, ayudando a combatir infecciones y fortalecer el sistema inmune.",
+            presentacion: "Frasco con 60 cápsulas (30 días de tratamiento)",
+            precio: "$350 c/u ($300 mayoreo)",
+            features: [
+              "Fortalece el sistema inmunológico",
+              "Ayuda a combatir infecciones recurrentes",
+              "Acelera la recuperación después de enfermedades",
+              "Seguro para uso prolongado"
+            ],
+            imagen: "recursos/FCT/CelestinFT__2024_V2.webp"
+          },
+          "null-age-ampolleta": {
+            nombre: "Null Age Ampolleta",
+            descripcion: "Fórmula rejuvenecedora avanzada que combina extracto de placenta con factores de crecimiento para regenerar la piel y retrasar el envejecimiento celular. Ayuda a renovar los tejidos y mantener un aspecto juvenil.",
+            presentacion: "Caja con 10 ampolletas",
+            precio: "$4000 c/u ($3500 mayoreo)",
+            features: [
+              "Regeneración celular avanzada",
+              "Reduce arrugas y líneas de expresión",
+              "Mejora la elasticidad y firmeza de la piel",
+              "Promueve la síntesis de colágeno"
+            ],
+            imagen: "recursos/Null Age/NullAge3R_caja_abierta.jpg"
+          },
+          "null-age-capsula": {
+            nombre: "Null Age Cápsula",
+            descripcion: "Complemento oral para intensificar los efectos del tratamiento Null Age. Contiene antioxidantes, vitaminas y minerales que promueven la regeneración celular desde el interior, retrasando el proceso de envejecimiento.",
+            presentacion: "Frasco con 60 cápsulas",
+            precio: "$2500 c/u ($2000 mayoreo)",
+            features: [
+              "Apoyo antioxidante desde el interior",
+              "Complemento ideal para el tratamiento con ampolletas",
+              "Mejora la salud celular general",
+              "Estimula la producción natural de colágeno"
+            ],
+            imagen: "recursos/Null Age/vista_N3R_03+(1).jpg"
+          },
+          "artikom": {
+            nombre: "Artikom",
+            descripcion: "Suplemento premium a base de aceite de krill antártico rico en ácidos grasos omega-3 en forma de fosfolípidos, lo que facilita su absorción. Apoya la salud cardiovascular, reduce inflamación y mejora los niveles de colesterol.",
+            presentacion: "Frasco con 30 cápsulas blandas",
+            precio: "$800 c/u ($700 mayoreo)",
+            features: [
+              "Alta biodisponibilidad de omega-3",
+              "Reduce triglicéridos y mejora colesterol",
+              "Disminuye inflamación en articulaciones",
+              "Apoya la función cerebral y cognitiva"
+            ],
+            imagen: "recursos/Artikom/ArtikOM3__2024_V2.webp"
+          },
+          "daily-pro": {
+            nombre: "Daily Pro",
+            descripcion: "Probiótico multiespecie con 50 mil millones de UFC por dosis, diseñado para restaurar el equilibrio de la microbiota intestinal. Contiene cepas clínicamente probadas que sobreviven al ácido estomacal y colonizan efectivamente el intestino.",
+            presentacion: "Frasco con 30 cápsulas gastrorresistentes",
+            precio: "$600 c/u",
+            features: [
+              "50 mil millones de bacterias benéficas por dosis",
+              "Mejora problemas digestivos como hinchazón y malestar",
+              "Fortalece la barrera intestinal",
+              "Apoya al sistema inmunológico"
+            ],
+            imagen: "recursos/DailyPro 50/DailyPRO_50_2024_V2.webp"
+          },
+          "dk-fort": {
+            nombre: "DK Fort",
+            descripcion: "Combinación sinérgica de vitamina D3 y K2 en sus formas más activas y biodisponibles. Trabajan juntas para regular el calcio en el cuerpo, fortalecer huesos y apoyar el sistema inmunológico y cardiovascular.",
+            presentacion: "Frasco con 60 cápsulas",
+            precio: "$800 c/u ($700 mayoreo)",
+            features: [
+              "Vitamina D3 (colecalciferol) en dosis óptima",
+              "Vitamina K2 MK-7, la forma más activa",
+              "Fortalece la estructura ósea",
+              "Mejora la absorción de calcio"
+            ],
+            imagen: "recursos/DK Fort/DKFort5__2024_V2.webp"
+          },
+          "l-ferrin": {
+            nombre: "L Ferrín",
+            descripcion: "Suplemento de lactoferrina, una glicoproteína con potentes propiedades antimicrobianas, antivirales y antiinflamatorias. Apoya el sistema inmunológico, regula la absorción de hierro y protege contra infecciones.",
+            presentacion: "Frasco con 60 cápsulas",
+            precio: "$800 c/u ($700 mayoreo)",
+            features: [
+              "Potente acción antimicrobiana natural",
+              "Regula la absorción y metabolismo del hierro",
+              "Protege contra infecciones recurrentes",
+              "Reduce inflamación"
+            ],
+            imagen: "recursos/L Ferrín/51MpR08Z6lL._AC_SX569_.jpg"
+          },
+          "inm-mix": {
+            nombre: "Inm Mix",
+            descripcion: "Proteína vegetal con blend completo de aminoácidos esenciales, enriquecida con superalimentos y enzimas digestivas. Formulación que aporta nutrición completa y energía sostenida a lo largo del día.",
+            presentacion: "Bote con 500g (15 porciones)",
+            precio: "$900 c/u ($800 mayoreo)",
+            features: [
+              "Proteína completa de fuentes vegetales",
+              "Con enzimas digestivas para mejor asimilación",
+              "Superalimentos para nutrición completa",
+              "Libre de lácteos, soya y gluten"
+            ],
+            imagen: "recursos/Inm Mix/proteinavegetal.png"
+          },
+          "inm-box": {
+            nombre: "Inm Box",
+            descripcion: "Kit completo para fortalecer la inmunidad que incluye Factor de Transferencia, Daily Pro y DK Fort. Proporciona un enfoque integral para fortalecer tus defensas desde múltiples ángulos.",
+            presentacion: "Caja con 3 productos (tratamiento para 30 días)",
+            precio: "$1300 c/u ($1200 mayoreo)",
+            features: [
+              "Factor de Transferencia para educación inmunitaria",
+              "Daily Pro para equilibrio intestinal",
+              "DK Fort para optimizar vitaminas esenciales",
+              "Ahorro significativo versus compra individual"
+            ],
+            imagen: "recursos/InmBox/InmBox__2025_V2-01.webp"
+          }
+        };
+
+        // Llenar la información del producto
+        const productoData = productosData[productoId];
+        if (productoData) {
+          const productoNombre = document.getElementById("producto-nombre");
+          const productoDescripcion = document.getElementById("producto-descripcion");
+          const productoPresentacion = document.getElementById("producto-presentacion");
+          const productoPrecio = document.getElementById("producto-precio");
+          const productoFeatures = document.getElementById("producto-features");
+          const productoImg = document.getElementById("producto-img");
+          const miniatura = document.querySelector(".miniatura");
+          const addToCartBtn = document.getElementById("add-to-cart-btn");
+          const descripcionDetallada = document.getElementById("descripcion-detallada");
+
+          if (productoNombre) productoNombre.textContent = productoData.nombre;
+          if (productoDescripcion) productoDescripcion.textContent = productoData.descripcion;
+          if (productoPresentacion) productoPresentacion.textContent = productoData.presentacion;
+          if (productoPrecio) productoPrecio.textContent = productoData.precio;
+          if (descripcionDetallada) descripcionDetallada.textContent = productoData.descripcion;
+
+          if (productoFeatures) {
+            productoFeatures.innerHTML = "";
+            productoData.features.forEach(feature => {
+              const li = document.createElement("li");
+              li.innerHTML = `<i class="fas fa-check-circle"></i> ${feature}`;
+              productoFeatures.appendChild(li);
+            });
+          }
+
+          if (productoImg) {
+            productoImg.src = productoData.imagen;
+            productoImg.alt = productoData.nombre;
+          }
+
+          if (miniatura) {
+            miniatura.setAttribute("data-img", productoData.imagen);
+            miniatura.querySelector("img").src = productoData.imagen;
+            miniatura.querySelector("img").alt = productoData.nombre;
+          }
+
+          if (addToCartBtn) {
+            addToCartBtn.setAttribute("data-product", productoData.nombre);
+            addToCartBtn.setAttribute("data-price", productoData.precio.match(/\d+/)[0]);
+            
+            addToCartBtn.addEventListener("click", () => {
+              const product = productoData.nombre;
+              const price = parseInt(productoData.precio.match(/\d+/)[0]);
+              const quantity = parseInt(document.getElementById("cantidad").value) || 1;
+              
+              // Añadir al carrito (esto depende de la implementación del carrito en script.js)
+              let cart = JSON.parse(localStorage.getItem("cart")) || [];
+              const existingProduct = cart.find((item) => item.product === product);
+              
+              if (existingProduct) {
+                existingProduct.quantity += quantity;
+              } else {
+                cart.push({ product, price, quantity });
+              }
+              
+              localStorage.setItem("cart", JSON.stringify(cart));
+              
+              // Mostrar notificación
+              const notificationContainer = document.getElementById("notification-container");
+              const notification = document.createElement("div");
+              notification.className = "notification success";
+              
+              notification.innerHTML = `
+                <div class="notification-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-content">
+                  <div class="notification-title">Producto añadido</div>
+                  <div class="notification-message">${product} ha sido añadido al carrito (${quantity} unidad${quantity > 1 ? 'es' : ''}).</div>
+                </div>
+                <div class="notification-close">
+                  <i class="fas fa-times"></i>
+                </div>
+              `;
+              
+              notificationContainer.appendChild(notification);
+              
+              // Animar botón de añadir al carrito
+              addToCartBtn.classList.add("added");
+              setTimeout(() => {
+                addToCartBtn.classList.remove("added");
+              }, 1000);
+              
+              // Cerrar notificación automáticamente después de 3 segundos
+              setTimeout(() => {
+                notification.style.animation = "slideOutRight 0.3s forwards";
+                setTimeout(() => notification.remove(), 300);
+              }, 3000);
+              
+              // Actualizar contador del carrito
+              const cartCountElement = document.querySelector(".cart-count");
+              if (cartCountElement) {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCountElement.textContent = totalItems;
+                cartCountElement.style.display = totalItems > 0 ? "block" : "none";
+              }
+            });
+          }
+
+          // Botón de comprar ahora
+          const comprarAhoraBtn = document.querySelector(".comprar-ahora");
+          if (comprarAhoraBtn) {
+            comprarAhoraBtn.addEventListener("click", () => {
+              // Añadir al carrito primero
+              addToCartBtn.click();
+              
+              // Redirigir al carrito
+              setTimeout(() => {
+                window.location.href = "carrito.html";
+              }, 500);
+            });
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

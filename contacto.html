@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacta con InmunoMedi - Distribuidor oficial de Factor de Transferencia y suplementos para fortalecer el sistema inmune.">
+  <meta name="keywords" content="contacto, InmunoMedi, Factor de Transferencia, sistema inmune, suplementos, salud">
+  <title>Contacto - InmunoMedi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="template/shared.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="icon" href="recursos/simbolo/SimbFCT.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="recursos/simbolo/SimbFCT.png" alt="Cargando..." class="preload-logo" width="100" height="100">
+      <p class="preload-text">Cargando...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <?php include 'template/header.html'; ?>
+
+  <main>
+    <!-- Hero de Contacto -->
+    <section class="contacto-hero">
+      <div class="container">
+        <div class="contacto-hero-content animate-on-scroll">
+          <h1>Contáctanos</h1>
+          <p>Estamos aquí para responder tus preguntas y asesorarte sobre nuestros productos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto">
+      <div class="container">
+        <div class="contacto-content">
+          <div class="contacto-form animate-on-scroll fade-right">
+            <h3>Envíanos un mensaje</h3>
+            <form id="form-contacto" action="submit-form.php" method="POST">
+              <input type="hidden" name="form_type" value="contact">
+              <div class="form-group">
+                <label for="nombre">Nombre completo*</label>
+                <input type="text" id="nombre" name="nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono*</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="+52 55 1234 5678">
+              </div>
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
+              </div>
+              <div class="form-group">
+                <label for="asunto">Asunto</label>
+                <select id="asunto" name="asunto">
+                  <option value="informacion">Información sobre productos</option>
+                  <option value="pedido">Realizar un pedido</option>
+                  <option value="mayoreo">Información de mayoreo</option>
+                  <option value="otro">Otro asunto</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="mensaje">Mensaje*</label>
+                <textarea id="mensaje" name="mensaje" required placeholder="¿En qué podemos ayudarte?"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los <a href="terminos.html">Términos y Condiciones</a> y la política de privacidad.</label>
+              </div>
+              <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
+            </form>
+          </div>
+          <div class="contacto-info animate-on-scroll fade-left">
+            <h3>Información de Contacto</h3>
+            <div class="info-container">
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Dirección</h4>
+                  <p>Av. Salud 456, Col. Médica<br>Ciudad de México, CP 06720</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Teléfonos</h4>
+                  <p>+52 55 6029 8059<br>+52 55 5948 1639</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Email</h4>
+                  <p><a href="mailto:contacto@inmunomedi.com">contacto@inmunomedi.com</a></p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Horario de atención</h4>
+                  <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábados: 10:00 AM - 2:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <div class="social-contacto">
+              <h4>Síguenos en redes sociales</h4>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/FactorTransferenciaICelestinFT/" target="_blank" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/distribuidorinmunomedi" target="_blank" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+            <div class="whatsapp-contacto">
+              <h4>Contacto directo por WhatsApp</h4>
+              <a href="https://wa.me/55560298059" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chatea con nosotros
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="mapa-seccion">
+      <div class="container">
+        <h2 class="text-center">Encuéntranos</h2>
+        <div class="mapa-container animate-on-scroll">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661686124632!2d-99.16979708469955!3d19.424774546029434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35104a0c1d%3A0x8591958e8d4f39d6!2sCol.%20Ju%C3%A1rez%2C%20Cuauht%C3%A9moc%2C%2006600%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1649687047732!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Contacto -->
+    <section class="faq-contacto">
+      <div class="container">
+        <h2 class="text-center">Preguntas Frecuentes</h2>
+        <div class="faq-grid">
+          <div class="faq-item animate-on-scroll fade-up">
+            <div class="faq-question">
+              <h3>¿Cuánto tiempo tardan en llegar los pedidos?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Nuestros envíos a CDMX y área metropolitana se entregan en 1-2 días hábiles. Para el resto del país, el tiempo de entrega es de 2-4 días hábiles, dependiendo de la ubicación.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll fade-up">
+            <div class="faq-question">
+              <h3>¿Cuáles son las formas de pago disponibles?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Aceptamos transferencias bancarias, depósitos en efectivo, pagos con tarjeta a través de un enlace seguro, y pagos en efectivo contra entrega (solo en CDMX).</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll fade-up">
+            <div class="faq-question">
+              <h3>¿Ofrecen descuentos por mayoreo?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Sí, ofrecemos precios especiales para pedidos al mayoreo a partir de 5 unidades del mismo producto. Para más información, contáctanos directamente.</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll fade-up">
+            <div class="faq-question">
+              <h3>¿Tienen tienda física?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-answer">
+              <p>Sí, contamos con un punto de venta en Av. Salud 456, Col. Médica, CDMX. Puedes visitarnos en nuestro horario de atención o agendar una cita previa por teléfono.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <?php include 'template/footer.html'; ?>
+
+  <!-- WhatsApp Button -->
+  <div class="whatsapp-btn">
+    <a href="https://wa.me/55560298059" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Back to Top -->
+  <a href="#inicio" class="back-to-top" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Notificaciones -->
+  <div id="notification-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
